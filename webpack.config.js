@@ -2,6 +2,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
 
 const config = {
     mode: 'production',
@@ -25,9 +26,9 @@ const config = {
         },
     },
 
-    entry: __dirname + '/src/app.js',
+    entry: __dirname + '/frontend/app.js',
     output: {
-        path: '/',
+        path: path.join(__dirname,'backend/public'),
         filename: 'js/[name].[chunkHash].bundle.js',
         chunkFilename: 'js/[name].[chunkHash]'.js
     },
@@ -116,7 +117,7 @@ const config = {
             _: 'lodash'
         }),
         new HtmlWebpackPlugin({
-            template: './src/public/html/index.handlebars',
+            template: './frontend/html/index.handlebars',
             minify:{
                 collapseWhitespace: true,
                 removeComments: true,

@@ -13,13 +13,13 @@ const path = require('path');
 
 const webpack = require ('webpack');
 const webpackMiddleware = require ('webpack-dev-middleware');
-const webpackConfig = require ('./webpack.config');
+const webpackConfig = require ('../webpack.config');
 
 /**
  * MIDDLEWARE   
  */
 
-    app.use(webpackMiddleware(webpack(webpackConfig)));
+    // app.use(webpackMiddleware(webpack(webpackConfig)));
     
     
     /**

@@ -1,19 +1,19 @@
 import _ from 'lodash';
-import './public/js/slider';
+import './js/slider';
 import 'bootstrap';
 import * as AOS from 'aos/dist/aos.js';
-import "./public/styles/main.scss";
-import './public/js/imagenes';
-import './public/js/scrolling';
-import './public/js/activeClassMenu';
-import "./public/js/appSlider";
-import "./public/js/pinterestGrid";
+import "./styles/main.scss";
+import './js/imagenes';
+import './js/scrolling';
+import './js/activeClassMenu';
+import "./js/appSlider";
+import "./js/pinterestGrid";
 // import { Lightbox } from "../js/sliderGaleria";
-import './public/js/sliderGaleria';
-import "./public/js/appReceta";
-import "./public/js/seleccionarProductoPedido";
-import "./public/js/appPedido";
-import "./public/js/appContacto";
+import './js/sliderGaleria';
+import "./js/appReceta";
+import "./js/seleccionarProductoPedido";
+import "./js/appPedido";
+import "./js/appContacto";
 
 
 AOS.init({
