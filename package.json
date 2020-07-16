@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production node index.js",
+    "start": "node index.js",
     "dev": "NODE_ENV=development nodemon index.js",
     "build": "webpack",
     "heroku-postbuild": "webpack --prod"
-    
   },
   "keywords": [],
   "author": "",
@@ -24,7 +23,6 @@
     "babel": "^6.23.0",
     "babel-loader": "^8.1.0",
     "bootstrap": "^4.5.0",
-    "cross-env": "^7.0.2",
     "css-loader": "^3.6.0",
     "dotenv": "^8.2.0",
     "file-loader": "^6.0.0",

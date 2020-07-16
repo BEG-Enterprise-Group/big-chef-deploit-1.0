@@ -81,7 +81,7 @@ const config = {
                         options:{
                             limit: 30000,
                             name: '[name].[ext]',
-                            outputPath: '/img/',
+                            outputPath: '/img',
                             useRelativePath: true,
                             fallback: require.resolve('file-loader'),
                         }
@@ -97,7 +97,7 @@ const config = {
                         loader: 'file-loader',
                         options: {
                             name:'[name].[ext]',
-                            outputPath: '/img/',
+                            outputPath: '/img',
                             useRelativePath: true
                         }
                     },
