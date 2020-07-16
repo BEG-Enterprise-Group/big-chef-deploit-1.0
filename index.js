@@ -47,10 +47,10 @@ const webpackConfig = require ('./webpack.config');
      */
     // app.use(express.static(__dirname + '/dist'));
 
-    app.use(express.static(__dirname));
-    app.get('*',(req,res)=>{
-        res.sendFile(path.resolve(__dirname,'index.html'));
-    });
+    app.use(express.static(path.join(__dirname,'public')));
+    // app.get('*',(req,res)=>{
+    //     res.sendFile(path.resolve(__dirname,'index.html'));
+    // });
 
     /**
      * ARRANCANDO EL SERVIDOR
