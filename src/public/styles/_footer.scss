@@ -1,0 +1,644 @@
+footer{
+    padding-top: 50px;
+    background: $colorMostaza;
+    overflow: hidden;
+    .titulo-pie{
+        font-size: 1.5625rem;
+        font-weight:700;
+        padding: 10px;
+        margin-bottom: 30px;
+        letter-spacing: 3px;
+        color: $colorPrimario;
+    }
+    .contenedor-card{
+        .card{
+            background: none;
+            border: none;
+            border-radius: 0;
+            padding:30px;
+            .bigchef{
+                box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+                width: 50%;
+                display: block;
+                margin: auto;
+            }
+        }
+    }
+
+    .contenedor-card .descripcion-pie,
+    .contenedor-empresa .descripcion-pie{
+        color: $colorPrimario;
+        font-size: 1rem;
+        font-weight: 400;
+        margin-bottom: 30px;
+        span{
+            font-size: 1.125rem;
+            font-weight: 700;
+        }
+    }
+    .contenedor-empresa{
+        padding: 30px;
+        color: $colorPrimario;
+        line-height: 20px;
+        
+
+        .imagen{
+            display: block;
+            margin: auto;
+        }
+
+    }
+
+    .contenido-contacto{
+        padding: 30px;
+        .card{
+            border-radius: 10px;
+            border:5px solid $colorMostaza;
+        }
+        .cuerpo{
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+            background: $colorPrimario;
+            border: none;
+            input{
+                box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+                border: 5px solid transparent;
+                border-radius: 10px;
+                &::-webkit-input-placeholder{
+                    color: $colorPrimario;
+                    font-size: 1rem;
+                }
+    
+                &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                    color: $colorPrimario;
+                    font-size: 1rem;
+                    opacity: 1 /* esto es porque Firefox le reduce la opacidad por defecto */;
+                }
+                 
+                &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                    color: $colorPrimario;
+                    font-size: 1rem;
+                    opacity:  1;
+                }
+                &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                    color: $colorPrimario;
+                    font-size: 1rem;
+                }
+            }
+            textarea{
+                box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+                border: 5px solid transparent;
+                border-radius: 10px;
+            }
+            .boton{
+                display: block;
+                width: 100%;
+                background: $colorMostaza;
+                color: $colorPrimario;
+                border:2px solid transparent;
+                &:hover{
+                    background: $colorPrimario;
+                    color: $colorMostaza;
+                    border: 2px solid $colorMostaza;
+                }
+            }
+           
+        }
+    }
+
+    .contenido-marcas{
+        margin: 0;
+        padding: 0;
+        .estilo{
+            display: flex;
+            flex-direction: row;
+
+            .contenedor-nota{
+                padding: 7px 0px;
+                text-align: center;
+                color:$colorPrimario;
+                font-size: 0.875rem;
+                font-weight: 700;
+        
+                .beg{
+                    p{
+                        display: inline;
+                    }
+                    img{
+                        width: 20%;
+                    }
+                }
+                .districaribe{
+                    p{
+                        display: inline;
+                    }
+                    img{
+                        width: 25%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width:1921px){
+    footer{
+        .titulo-pie{
+            font-size: 4rem;
+        }
+        .contenedor-card{
+            .card{
+                .descripcion-pie{
+                    font-size: 2rem;
+                }
+            }
+        }
+        .contenedor-empresa{
+            line-height: 2.1rem;
+            .descripcion-pie{
+                .titulo-span{
+                    font-size: 2rem;
+                }
+                font-size: 2rem;
+            }
+            
+        }
+
+        .contenido-contacto{
+            .cuerpo{
+                input{
+                    font-size: 2rem;
+                    &::-webkit-input-placeholder{
+                        font-size: 2rem;
+                    }
+        
+                    &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                        font-size: 2rem;
+                        
+                    }
+                     
+                    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                        font-size: 2rem;
+                        
+                    }
+                    &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                        font-size: 2rem;
+                    }
+                }
+                textarea{
+                    font-size: 2rem;
+                }
+                .boton{
+                    font-size: 2rem;
+                }
+                .label-enviar{
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+}
+
+@media(min-width:1441px) and (max-width:1920px){
+    footer{
+        .titulo-pie{
+            font-size: 2rem;
+        }
+        .contenedor-card{
+            .card{
+                .descripcion-pie{
+                    font-size: 1.25rem;
+                }
+            }
+        }
+        .contenedor-empresa{
+            line-height: 1.4rem;
+            .descripcion-pie{
+                .titulo-span{
+                    font-size: 1.25rem;
+                }
+                font-size: 1.25rem;
+            }
+            
+        }
+
+        .contenido-contacto{
+            .cuerpo{
+                input{
+                    font-size: 1.25rem;
+                    &::-webkit-input-placeholder{
+                      
+                        font-size: 1.25rem;
+                    }
+        
+                    &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                        
+                        font-size: 1.25rem;
+                        
+                    }
+                     
+                    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                    
+                        font-size: 1.25rem;
+                        
+                    }
+                    &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                    
+                        font-size: 1.25rem;
+                    }
+                }
+                textarea{
+                    font-size: 1.25rem;
+                }
+                .boton{
+                    font-size: 1.25rem;
+                }
+                .label-enviar{
+                    font-size: 1.25rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px){
+    footer{
+        .titulo-pie{
+            font-size: 1.9rem;
+        }
+        .contenedor-card{
+            .card{
+                .descripcion-pie{
+                    font-size: 1rem;
+                }
+            }
+        }
+        .contenedor-empresa{
+            line-height: 1.25rem;
+            .descripcion-pie{
+                .titulo-span{
+                    font-size: 1.2rem;
+                }
+                font-size: 1rem;
+            }
+            
+        }
+
+        .contenido-contacto{
+            .cuerpo{
+                input{
+                    font-size: 1rem;
+                    &::-webkit-input-placeholder{
+                    
+                        font-size: 1rem;
+                    }
+        
+                    &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                      
+                        font-size: 1rem;
+                        
+                    }
+                     
+                    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                      
+                        font-size: 1rem;
+                        
+                    }
+                    &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                     
+                        font-size: 1rem;
+                    }
+                }
+                textarea{
+                    font-size: 1rem;
+                }
+                .boton{
+                    font-size: 1rem;
+                }
+                .label-enviar{
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 992px){
+    footer{
+        .titulo-pie{
+            font-size: 1.8rem;
+        }
+        .contenedor-card{
+            .card{
+                .descripcion-pie{
+                    font-size: 1rem;
+                }
+            }
+        }
+        .contenedor-empresa{
+            line-height: 1.25rem;
+            .descripcion-pie{
+                .titulo-span{
+                    font-size: 1rem;
+                }
+                font-size: 1rem;
+            }
+            
+        }
+
+        .contenido-contacto{
+            .cuerpo{
+                input{
+                    font-size: 1rem;
+                    &::-webkit-input-placeholder{
+                     
+                        font-size: 1rem;
+                    }
+        
+                    &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                      
+                        font-size: 1rem;
+                        
+                    }
+                     
+                    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                   
+                        font-size: 1rem;
+                        
+                    }
+                    &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                    
+                        font-size: 1rem;
+                    }
+                }
+                textarea{
+                    font-size: 1rem;
+                }
+                .boton{
+                    font-size: 1rem;
+                }
+                .label-enviar{
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px){
+    footer{
+        .titulo-pie{
+            font-size: 1.8rem;
+        }
+        .contenedor-card{
+            padding: 15px 30px;
+            .card{
+                .descripcion-pie{
+                    font-size: 1rem;
+                }
+            }
+        }
+        .contenedor-empresa{
+            padding: 15px 30px;
+            line-height: 1.25rem;
+            .descripcion-pie{
+                .titulo-span{
+                    font-size: 1rem;
+                }
+                font-size: 1rem;
+            }
+            
+        }
+
+        .contenido-contacto{
+            padding: 15px 30px;
+            .cuerpo{
+                input{
+                    font-size: 1rem;
+                    &::-webkit-input-placeholder{
+                     
+                        font-size: 1rem;
+                    }
+        
+                    &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                    
+                        font-size: 1rem;
+                        
+                    }
+                     
+                    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                    
+                        font-size: 1rem;
+                        
+                    }
+                    &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                  
+                        font-size: 1rem;
+                    }
+                }
+                textarea{
+                    font-size: 1rem;
+                }
+                .boton{
+                    font-size: 1rem;
+                }
+                .label-enviar{
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px){
+    footer{
+        .titulo-pie{
+            font-size: 1.5rem;
+        }
+        .contenedor-card{
+            .card{
+                .descripcion-pie{
+                    font-size: 0.875rem;
+                }
+            }
+        }
+        .contenedor-empresa{
+            line-height: 1.25rem;
+            .descripcion-pie{
+                .titulo-span{
+                    font-size: 0.875rem;
+                }
+                font-size: 0.875rem;
+            }
+            
+        }
+
+        .contenido-contacto{
+            .cuerpo{
+                input{
+                    font-size: 0.875rem;
+                    &::-webkit-input-placeholder{
+                  
+                        font-size: 0.875rem;
+                    }
+        
+                    &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                  
+                        font-size: 0.875rem;
+                        
+                    }
+                     
+                    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                 
+                        font-size: 0.875rem;
+                        
+                    }
+                    &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                    
+                        font-size: 0.875rem;
+                    }
+                }
+                textarea{
+                    font-size: 0.875rem;
+                }
+                .boton{
+                    font-size: 0.875rem;
+                }
+                .label-enviar{
+                    font-size: 0.875rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 425px){
+    footer{
+        .titulo-pie{
+            font-size: 1.3rem;
+        }
+        .contenedor-card{
+            .card{
+                .descripcion-pie{
+                    font-size: 0.8125rem;
+                }
+            }
+        }
+        .contenedor-empresa{
+            line-height: 1.25rem;
+            .descripcion-pie{
+                .titulo-span{
+                    font-size: 0.8125rem;
+                }
+                font-size: 0.8125rem;
+            }
+            
+        }
+
+        .contenido-contacto{
+            .cuerpo{
+                input{
+                    font-size: 0.8125rem;
+                    &::-webkit-input-placeholder{
+                    
+                        font-size: 0.8125rem;
+                    }
+        
+                    &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                 
+                        font-size: 0.8125rem;
+                        
+                    }
+                     
+                    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+             
+                        font-size: 0.8125rem;
+                        
+                    }
+                    &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+           
+                        font-size: 0.8125rem;
+                    }
+                }
+                textarea{
+                    font-size: 0.8125rem;
+                }
+                .boton{
+                    font-size: 0.8125rem;
+                }
+                .label-enviar{
+                    font-size: 0.8125rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 320px){
+    footer{
+        .titulo-pie{
+            font-size: 1.2rem;
+        }
+        .contenedor-card{
+            .card{
+                .descripcion-pie{
+                    font-size: 0.75rem;
+                }
+            }
+        }
+        .contenedor-empresa{
+            line-height: 1.25rem;
+            .descripcion-pie{
+                .titulo-span{
+                    font-size: 0.75rem;
+                }
+                font-size: 0.75rem;
+            }
+            
+        }
+
+        .contenido-contacto{
+            .cuerpo{
+                input{
+                    font-size: 0.75rem;
+                    &::-webkit-input-placeholder{
+             
+                        font-size: 0.75rem;
+                    }
+        
+                    &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            
+                        font-size: 0.75rem;
+                        
+                    }
+                     
+                    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                 
+                        font-size: 0.75rem;
+                        
+                    }
+                    &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                  
+                        font-size: 0.75rem;
+                    }
+                }
+                textarea{
+                    font-size: 0.75rem;
+                }
+                .boton{
+                    font-size: 0.75rem;
+                }
+                .label-enviar{
+                    font-size: 0.75rem;
+                }
+            }
+        }
+        .contenido-marcas{
+            .contenedor-nota{
+                .districaribe,.derechos,p{
+                    font-size: 0.75rem;
+                }
+            }
+        }
+    }
+}

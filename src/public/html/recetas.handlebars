@@ -1,0 +1,67 @@
+<h2 class="titulo">Recetas que puedes hacer con nuestra línea de productos <strong>Big Chef</strong> </h2>
+<article class="container-fluid">
+    <div class="row">
+        <div class="vacia d-sm-none d-lg-block col-lg-2"></div>
+        <div data-aos="zoom-out-right" id="rUno" class="receta uno col-sm-12 col-md-6 col-lg-4">
+            <div class="contenido-receta">
+                <div class="contenido">
+                    <div class="foto">
+                        <img class="img-fluid imagen" data-src="./img/salsa-tartara.png" alt="">
+                    </div>
+                    {{!-- <img class="fotografia primera img-fluid" data-src="./img/foto1.jpg" alt=""> --}}
+                    <div class="info-receta">
+                        <h4 class="titulo-receta" id="titulo-receta">Salsa Tártara</h4>
+                        <p class="texto-receta" id="texto-receta">Es muy fácil preparar una rica y deliciosa salsa tártara con nuestra <a
+                                href="#home"><strong>Mayonesa Heavy Duty</strong></a> ...</p>
+                    </div>
+                    <button id="receta-uno" class="verMas boton btn btn-block">Ver más..</button>
+                </div>
+            </div>
+        </div>
+        <div data-aos="zoom-out-left" id="rDos" class="receta dos col-sm-12 col-md-6 col-lg-4">
+            <div class="contenido-receta">
+                <div class="contenido">
+                    <div class="foto">
+                        <img class="img-fluid imagen" data-src="./img/salsa-verde.png" alt="">
+                    </div>
+                    {{!-- <img class="fotografia segunda img-fluid" data-src="./img/foto2.jpg" alt=""> --}}
+                    <div class="info-receta">
+                        <h4 class="titulo-receta" id="titulo-receta2">Salsa Verde</h4>
+                        <p class="texto-receta">Esta receta salsa verde es ideal para colocar a los chuzos desgranados,
+                            salchichas para darle un sabor muy especial. Se puede preparar con nuestra mayonesa <a
+                                href="#home"><strong>Mayonesa Heavy Duty</strong></a> y nuestra mostaza...</p>
+                    </div>
+                    <button id="receta-dos" class="verMas boton btn btn-block">Ver más..</button>
+                </div>
+            </div>
+        </div>
+        <div class="vacia d-sm-none d-lg-block col-lg-2"></div>
+    </div>
+</article>
+<div class="modal fade" id="modelId2" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" id="contenido" role="document">
+        <div class="modal-content color">
+            <div class="modal-header">
+                <h5 id="titulo-modal2" class="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="cerrar" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <img loading="lazy" id="imagen-modal2" data-src="" class="imagen-modal img-fluid" alt="">
+                        </div>
+                        <div class="col-12 ml-auto">
+                            <p id="parrafo-modal2" class="parrafo-modal"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="boton btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

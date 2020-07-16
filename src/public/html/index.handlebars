@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Webpack Workflow</title>
+</head>
+
+<body>
+    <header>
+        {{>navigation}}
+    </header>
+    <section id="home" class="home">
+        {{>slider}}
+    </section>
+    <section id="producto" class="producto container-fluid">
+        {{>porqueElegirnos}}
+    </section>
+    <section id="nosotros" class="nosotros">
+        {{>nosotros}}
+    </section>
+    <section id="contenedor-galeria" class="contenedor-galeria">
+        {{>galeria}}
+    </section>
+    <section id="recetas" class="recetas">
+        {{>recetas}}
+    </section>
+    <article class="pedido" id="pedido">
+        {{>pedidos}}
+    </article>
+    <footer class="container-fluid" id="footer">
+        {{>footer}}
+    </footer>
+    <script src="https://kit.fontawesome.com/2bb05859c2.js" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

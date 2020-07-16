@@ -1,0 +1,330 @@
+.home{
+     // background : linear-gradient(to right, rgba($colorPrimarioRed,$colorPrimarioGreen,$colorPrimarioBlue,0.7), rgba($colorHeavyRed,$colorHeavyGreen,$colorHeavyBlue,1)), url('../static/img/gorro-logo.svg');
+     background: $colorMostaza;
+     padding: 0;
+     margin: 0;
+     margin-top:50px;
+     overflow: hidden;
+     .slick-dots {
+         bottom: 25px;
+         z-index: 1000;
+     }
+     
+     .sliders{
+         position: relative;
+         margin:0;
+         padding: 0;
+         
+         .slide{
+             &.azul{
+                 background: $colorMostaza;
+                 color:$colorPrimario;
+             }
+ 
+             &.mostaza{
+                 background: $colorMostaza;
+                 color: $colorPrimario;
+             }
+ 
+             &.rojo{
+                 background: $colorMostaza;
+                 color:$colorPrimario;
+             }
+ 
+             &.amarillo{
+                 background: $colorMostaza;
+                 color: $colorPrimario;
+             }
+           
+             margin:0;
+             padding: 20px 48px;
+             .productos{
+                 text-align: right;
+                 align-self: center;
+                 .subtitulo1{
+                     margin: 15px 0px;
+                    //  font-size: 1rem;
+                 }
+                 .subtitulo2{
+                     margin: 15px 0px;
+                    //  font-size: 1.25rem;
+                     .titulo-uno,.titulo-dos{
+                         font-weight: 700;
+                         &.heavy{
+                             color:$colorPrimario;
+                         }
+ 
+                     }
+                     .titulo-dos{
+                         color: $colorPrimario;
+                         &.heavy{
+                             color:$colorPrimario;
+                         }
+                         &.pina{
+                             color: $colorPrimario;
+                         }
+                         &.tomate{
+                             color:$colorPrimario
+                         }
+                         &.mostaza{
+                             color: $colorPrimario;
+                         }
+                     }
+                 }
+ 
+                 .boton{
+                     margin-top: 10px;
+                    
+                     &.btn-mas{
+                         background: $colorPrimario;
+                         color: #fff;
+                         &.btn-tradicional{
+                             background: $colorPrimario;
+                         }
+                     }
+                     &.btn-pedido{
+                         background: $colorHover;
+                         color:#fff;
+                     }
+                     &.btn-heavy{
+                         background:$colorTomate;
+                         color:#fff;
+                     }
+                     &.btn-pina{
+                         background: $colorPina;
+                         color:#fff;
+                     }
+                     &.btn-tomate{
+                         background: $colorTomate;
+                         color:#fff;
+                     }
+                 }
+ 
+             }
+             .contenedor-imagen{
+                 width: 100%;
+                 height: auto;
+                 padding: 20px;
+                 margin: 0;
+                 .imagen{
+                     padding: 10px;
+                     width: 45%;
+                     display: block;
+                     margin: auto;
+                     &.imagen-mostaza{
+                         width: 45%;
+                     }
+                 }
+             }
+         }    
+    }
+}
+
+@media (min-width:1921px){
+    .home{
+        .slick-dots {
+            bottom: 40px;
+            z-index: 1000;
+        }
+        .sliders{
+            padding: 30px;
+            .slide{
+                .productos{
+                    .subtitulo1{
+                        font-size: 3rem;
+                    }
+                    .subtitulo2{
+                        font-size: 4rem;
+                    }
+    
+                    .boton{
+                   
+                       font-size: 2rem;
+                    }
+    
+                }
+            }
+        }
+    }
+
+}
+
+@media (min-width:1441px) and (max-width:1920px){
+    .home{
+        .slick-dots {
+            bottom: 30px;
+        }
+        .sliders{
+            padding: 10px;
+            .slide{
+                .productos{
+                    .subtitulo1{
+                        font-size: 2.5rem;
+                    }
+                    .subtitulo2{
+                        font-size: 3rem;
+                    }
+    
+                    .boton{
+                   
+                       font-size: 1.5rem;
+                    }
+    
+                }
+
+            }
+        }
+    }
+
+}
+
+@media (max-width:1024px){
+    .home{
+        .slick-dots {
+            bottom: 20px;
+        }
+        .sliders{
+            padding: 10px;
+            .slide{
+                .productos{
+                    .subtitulo1{
+                        font-size: 1.25rem;
+                    }
+                    .subtitulo2{
+                        font-size: 1.5rem;
+                    }
+    
+                    .boton{
+                   
+                       font-size: 0.9375rem;
+                    }
+    
+                }
+
+            }
+        }
+    }
+
+}
+
+@media (max-width:768px){
+    .home{
+        .slick-dots {
+            bottom: 15px;
+        }
+        .sliders{
+            padding: 10px;
+            .slide{
+                .productos{
+                    .subtitulo1{
+                        font-size: 0.875rem;
+                    }
+                    .subtitulo2{
+                        font-size: 1rem;
+                    }
+    
+                    .boton{
+                   
+                       font-size: 0.8125rem;
+                    }
+    
+                }
+
+            }
+        }
+    }
+
+}
+
+@media (max-width:576px){
+    .home{
+        .slick-dots {
+            bottom: 10px;
+        }
+        .sliders{
+            padding: 10px;
+            .slide{
+                .productos{
+                    .boton{
+                        width: 100%;
+                        display: block; 
+                        font-size: 0.8125rem;
+                    }
+    
+                }
+                .contenedor-imagen{
+                    .imagen{
+                        width:100%;
+                        &.imagen-mostaza{
+                            width: 45.5%;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+}
+
+@media (max-width:425px){
+    .home{
+        .slick-dots {
+            bottom: 7px;
+        }
+        .sliders{
+            padding: 10px;
+            .slide{
+                .productos{
+                    .boton{
+                        width: 100%;
+                       display: block; 
+                       font-size: 0.75rem;
+                    }
+    
+                }
+                .contenedor-imagen{
+                    .imagen{
+                        width:100%;
+                        &.imagen-mostaza{
+                            width: 43.25%;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+}
+
+@media (max-width:320px){
+    .home{
+        .slick-dots {
+            bottom: 5px;
+        }
+        .sliders{
+            padding: 10px;
+            .slide{
+                .productos{
+                    .boton{
+                        width: 80%;
+                       display: block; 
+                       font-size: 0.5rem;
+                    }
+    
+                }
+                .contenedor-imagen{
+                    .imagen{
+                        width:200%;
+                        &.imagen-mostaza{
+                            width: 39.75%;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+}

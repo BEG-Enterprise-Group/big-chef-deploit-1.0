@@ -1,0 +1,205 @@
+.nosotros{
+    padding: 50px 0;
+    background:$colorMostaza;
+    margin: auto;
+    overflow: hidden;
+    .imagenes-nosotros{
+        margin:auto;
+        text-align: center;
+        width: 70%;
+        .imagen{
+            width: 100%;
+        }
+    }
+    article{
+        padding: 30px 0;
+        .contenido-nosotros{
+            position: relative;
+            .card{
+                width: 100%;
+                box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+                &.mision{
+                    border: 5px solid $colorPrimario;
+                    border-radius: 20px;
+                    &:hover{
+                        background: $colorPrimario;
+                        border: 5px solid $colorMostaza;
+                        color:#fff;
+                        transition: 1s ease-in-out all;
+    
+                    }
+                }
+    
+                &.vision{
+                    border: 5px solid $colorMostaza;
+                    border-radius: 20px;
+                    .imagen{
+                        width: 35%;
+                    }
+                    &:hover {
+                        background: $colorMostaza;
+                        border: 5px solid $colorPina;
+                        color:#fff;
+                        transition: 1s ease-in-out all;
+                       
+                    }
+                }
+    
+                &.valores{
+                    border: 5px solid $colorPina;
+                    border-radius: 20px;
+
+
+                    &:hover{
+                        background: $colorPina;
+                        border: 5px solid $colorPrimario;
+                        color:#fff;
+                        transition: 1s ease-in-out all;
+                        
+                    }
+
+                    
+                    .lista{
+                        padding: 16px;
+                        margin-bottom:0;
+                        list-style: square;
+                    }
+                }
+                .imagen{
+                    padding-top: 0.625rem;
+                    width: 25%;
+                    align-self: center;
+                }
+                .texto-nosotros{
+                    text-align: justify;
+                    padding: 1rem;
+                }
+            }
+        }
+        
+    }
+}
+
+@media (min-width:1921px){
+    .nosotros{
+        article{
+            .contenido-nosotros{
+                .contenedor{
+                    padding:30px 40px;
+                    .card{
+                        padding: 20px;
+                        .texto-nosotros{
+                            font-size: 2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+@media(min-width:1441px) and (max-width:1920px){
+    .nosotros{
+        article{
+            .contenido-nosotros{
+                .contenedor{
+                    .card{
+                        padding: 20px;
+                        .texto-nosotros{
+                            font-size: 1.25rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:992px){
+    .nosotros{
+        article{
+            .contenido-nosotros{
+                .contenedor{
+                    padding:30px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .nosotros{
+        .imagenes-nosotros{
+            width: 100%;
+        }
+    }
+}
+@media (max-width: 576px){
+        .nosotros{
+        article{
+            .contenido-nosotros{
+                .contenedor{
+                    // padding:30px;
+                    .card{
+                        &.valores{
+                            .texto-nosotros{
+                                line-height: 1rem;
+                            }
+                        }
+                        .texto-nosotros{
+                            font-size: 0.875rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 425px){
+    .nosotros{
+        article{
+            .contenido-nosotros{
+                .contenedor{
+                    // padding:30px;
+                    .card{
+                        &.valores{
+                            .texto-nosotros{
+                                line-height: 1rem;
+                            }
+                        }
+                        .texto-nosotros{
+                            font-size: 0.75rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 320px){
+    .nosotros{
+        article{
+            .contenido-nosotros{
+                .contenedor{
+                    // padding:30px;
+                    .card{
+                        &.valores{
+                            .texto-nosotros{
+                                line-height: 1rem;
+                            }
+                        }
+                        .texto-nosotros{
+                            font-size: 0.75rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+

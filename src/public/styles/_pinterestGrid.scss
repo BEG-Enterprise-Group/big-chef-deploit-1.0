@@ -1,0 +1,125 @@
+.contenedor-galeria{
+    background: $colorPrimario;
+    color: $colorMostaza;
+    overflow: hidden;
+    padding: 50px 0;
+    .parrafo{
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    .photogrid {
+        display: block;
+        position: relative;
+        max-width: 100%;
+        width: 100%;
+        padding: 20px;
+        .white-panel {
+            margin: 20px;
+            padding: 20px;
+            width: 100%;
+            position: absolute;
+            z-index: 1;
+            background:linear-gradient(to right, rgba(0,48,60,0.7), rgba(213,184,66,1));
+            box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+            padding: 10px;
+            img {
+                width: 100%;
+                max-width: 100%;
+                // height: auto;
+                opacity: 1;
+                transition: opacity 0.3s;
+                img [data-src]{
+                    opacity: 0;
+                }
+            }
+            
+            &:hover {
+                background: linear-gradient(to right, rgba(213,184,66,1),rgba(0,48,60,0.7));
+                box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+                margin-top: -5px;
+                -webkit-transition: all 0.3s ease-in-out;
+                -moz-transition: all 0.3s ease-in-out;
+                -o-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out;
+            }
+        }
+    }
+}
+
+@media (min-width:1921px){
+    .contenedor-galeria{
+        .titulo{
+            font-size: 4rem;
+        }
+        .parrafo{
+            font-size: 2rem;
+        }
+    }
+}
+
+@media(min-width:1441px) and (max-width:1920px){
+    .contenedor-galeria{
+        .titulo{
+            font-size: 2rem;
+        }
+        .parrafo{
+            font-size: 1.25rem;
+        }
+    }
+}
+
+@media (max-width: 992px){
+    .contenedor-galeria{
+        .titulo{
+            font-size: 1.8rem;
+        }
+        .parrafo{
+            font-size: 1rem;
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .contenedor-galeria{
+        .titulo{
+            font-size: 1.8rem;
+        }
+        .parrafo{
+            font-size: 1rem;
+        }
+    }
+}
+
+@media (max-width: 576px){
+    .contenedor-galeria{
+        .titulo{
+            font-size: 1.5rem;
+        }
+        .parrafo{
+            font-size: 0.875rem;
+        }
+        padding-bottom: 200px;
+    }
+}
+
+@media (max-width: 425px){
+    .contenedor-galeria{
+        .titulo{
+            font-size: 1.3rem;
+        }
+        .parrafo{
+            font-size: 0.8125rem;
+        }
+    }
+}
+
+@media (max-width: 320px){
+    .contenedor-galeria{
+        .titulo{
+            font-size: 1.2rem;
+        }
+        .parrafo{
+            font-size: 0.75rem;
+        }
+    }
+}

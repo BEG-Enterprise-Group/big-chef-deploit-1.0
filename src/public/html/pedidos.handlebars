@@ -1,0 +1,89 @@
+<div class="cabecera">
+    <h2 class="titulo">Haz tu pedido en linea y evita las demoras</h2>
+    <p class="parrafo-formulario">
+        Aquí podras añadir los productos de <strong>Big Chef</strong> por tipología a la lista final y enviarla a
+        nosotros
+        por nuestra <br>
+        plataforma para tener el placer de atenderte.
+    </p>
+    {{!-- <div class="padre-mensaje d-none" id="padre-mensaje"></div> --}}
+</div>
+<div class="container-fluid" id="contenedor">
+    <div class="row">
+        <div class="col-12 columnas-formulario" id="columnas-formulario">
+            <div class="agregar-productos " id="agregar-productos">
+                <form class="py-3 form-pedido" id="form-pedido" data-aos="zoom-in-down">
+                    <div class="selectbox">
+                        <div class="select" id="select">
+                            <div id="contenido-select" class="contenido-select">
+                                <h4 class="titulo-select" id="titulo-select">Selecciona el producto</h4>
+                                <!-- <p class="descripcion-formulario">Lorem, ipsum dolor.</p> -->
+                            </div>
+                            <i id="imagen-select" class="icono fas fa-angle-down"></i>
+                        </div>
+
+                        <div class="opciones" id="opciones">
+
+                             <a href="#" class="opcion">
+                                <div class="contenido-opcion">
+                                    <img class="imagen img-fluid" data-src="./img/slider1.png"
+                                        alt="">
+                                    <div class="textos-opcion">
+                                        <h4 class="titulo-select">Mayonesa Heavy duty</h4>
+                                        <!-- <p class="descrpcion-formulario">Lorem ipsum dolor sit amet.</p> -->
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="opcion">
+                                <div class="contenido-opcion">
+                                    <img class="imagen img-fluid" data-src="./img/slider2.png"
+                                        alt="">
+                                    <div class="textos-opcion">
+                                        <h4 class="titulo-select">Mayonesa Tradicional</h4>
+                                        <!-- <p class="descrpcion-formulario">Lorem ipsum dolor sit amet.</p> -->
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="opcion">
+                                <div class="contenido-opcion">
+                                    <img class="imagen img-fluid" data-src="./img/slider4.png" alt="">
+                                    <div class="textos-opcion">
+                                        <h4 class="titulo-select">Salsa de Piña</h4>
+                                        <!-- <p class="descrpcion-formulario">Lorem ipsum dolor sit amet.</p> -->
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="opcion">
+                                <div class="contenido-opcion">
+                                    <img class="imagen img-fluid" data-src="./img/slider5.png" alt="">
+                                    <div class="textos-opcion">
+                                        <h4 class="titulo-select">Salsa con Tomate</h4>
+                                        <!-- <p class="descrpcion-formulario">Lorem ipsum dolor sit amet.</p> -->
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="form-group cantidades">
+                        <label for="cantidad-producto">Cantidad </label>
+                        <input type="number" name="cantidad-producto" min="0" max="100" class="form-control w-50"
+                        id="cantidad-producto" placeholder="#Cantidad" value="0">
+                    </div>
+                    <input type="hidden" name="producto" id="input-select" value="">
+                    <label id="label-pedido" class="label-pedido"></label>
+                    <button type="submit" value="guardar" class=" boton btn btn-primary">Añadir producto a lista de
+                        pedido</button>
+                </form>
+            </div>
+        </div>
+        <div class="listar-productos d-none" id="listar-productos">
+            <h4 id="titulo" class="titulo d-none">Listado de los productos de su pedido</h4>
+            <div class="padre-mensaje d-none" id="padre-mensaje"></div>
+        </div>
+        <div class="vacia d-none" id="vacia"></div>
+        <div class="datos-finales d-none" id="datos-finales"></div>
+    </div>
+</div>

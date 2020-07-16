@@ -1,0 +1,1441 @@
+.pedido{
+    margin:0;
+    background: $colorPrimario;
+    padding: 50px 0;
+    overflow: hidden;
+    .cabecera{
+        .titulo{
+            margin: 20px 0;
+            padding: 10px 0;
+            color: $colorMostaza;
+        }
+    
+        .parrafo-formulario{
+            color: $colorMostaza;
+            text-align: center;
+            font-size: 1.125rem;
+            margin-bottom: 20px;
+        }
+
+       
+
+    }
+    .agregar-productos{
+        width: 100%;
+        padding-top: 50px;
+        position: relative;
+        .form-pedido{
+            position:relative;
+            transition: 0.3s ease all;
+            background: $colorMostaza;
+            margin: auto;
+            width: 40%;
+            padding: 40px 20px;
+            border-radius: 10px;;
+            box-shadow: 5px 5px 5px rgba(0,0,0,0.5);       
+                    .selectbox{
+                        padding: 30px 20px 20px 20px;
+                        width: 100%;
+                        margin: auto;
+                        position: relative;
+                        
+                        .select{
+                            background: #fff;
+                            width: 100%;
+                            box-shadow: 0px 0px 0px rgba(0,0,0,0.16); //sombra para el hover
+                            border-radius: 10px;
+                            cursor: pointer;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            transition: 0.2s ease all;
+                            // margin-bottom: 30px;
+                            margin-bottom: 10px;
+                            // padding: 30p
+                            padding: 5px;
+                            position: relative;
+                            z-index: 200;
+                            border: 4px solid transparent;
+                
+                            &:hover{
+                                box-shadow: 0px 5px 10px rgba(0,0,0,0.16);
+                                border: 4px solid $colorPrimario;
+                            }
+                
+                            &.active{
+                                box-shadow: 0px 5px 10px rgba(0,0,0,0.16);
+                                border: 4px solid $colorPrimario;
+                            }
+                            &.active:after{
+                                content: '';
+                                display: block;
+                                height: 0;
+                                width: 0;
+                                border-top: 15px solid $colorPrimario;
+                                border-left: 15px solid transparent;
+                                border-bottom: 15px solid transparent;
+                                border-right: 15px solid transparent;
+                                position: absolute;
+                                bottom: -30px;
+                                left: calc(50% - 15px);//hay que dejar un espacio
+                
+                            }
+                            .icono{
+                                font-size: 1rem;
+                                margin-left: 10px;
+                                padding-right: 10px;
+                                color: $colorPrimario;
+                            }
+                
+                            .contenido-select{
+                                .contenido-opcion{
+                                    width: 100%;
+                                    display: flex;
+                                    align-items: center;
+                                    transition: 0.2 ease all;
+                                    cursor: pointer;
+                
+                                    .imagen{
+                                        width: 60px;
+                                        height: 60px;
+                                        margin-right: 15px;
+                                        align-self: center;
+                                    }
+                                }
+                                .titulo-select{
+                                    padding:5px;
+                                    font-weight: 400;
+                                    font-size: 0.875rem;
+                                    text-align: center;
+                                    margin: 0;
+                            
+                                }
+                            }
+                
+                            
+                
+                        }
+                
+                        @keyframes fadeIn {
+                            from{
+                                transform: translateY(-200px) scale(0.5);
+                            }
+                            to{
+                                transform: translateY(0) scale(1);
+                            }
+                        }
+                
+                        .opciones{
+                            margin-top: 10px;
+                            position: absolute;
+                            background: #fff;
+                            border-radius: 10px;
+                            box-shadow: 0px 5px 10px rgba(0,0,0,0.16);
+                            max-height: 200px;
+                            overflow: auto;
+                            z-index: 1000;
+                            width: 100%;
+                            display: none;
+                
+                
+                            &.active{
+                                display: block;
+                                animation: fadeIn .3s forwards;//el fordwars para que se quede todo como se ejecuto
+                            }
+                
+                        
+                
+                            .opcion{
+                                text-decoration: none;
+                                :hover{
+                                    background: $colorPrimario;
+                
+                                    // .titulo-select{
+                                    //     color: #fff;
+                                    //     padding: 5px;
+                                    //     font-weight: 400;
+                                    //     font-size: 0.875rem;
+                                    //     text-align: center;
+                                    //     margin: 0;
+                                    // }
+                                    
+                                }
+                                
+                                .contenido-opcion{
+                                    width: 100%;
+                                    display: flex;
+                                    align-items: center;
+                                    transition: 0.2 ease all;
+                                    padding: 30px;// ****************** SE VA A COLOCAR DE MANERA DINAMICA
+                                    cursor: pointer;
+                                    
+                                    .textos-opcion{
+                                        .titulo-select{
+                                            padding: 5px;
+                                            font-weight: 400;
+                                            font-size: 0.875rem;
+                                            text-align: center;
+                                            margin: 0;
+                                        }
+                                    }
+                                
+                
+                                    .imagen{
+                                        width: 60px;
+                                        height: 60px;
+                                        margin-right: 15px;
+                                        align-self: center;
+                                    }
+                                }
+                            }
+                
+                        }
+                }    
+            .cantidades{
+                padding:20px;
+                label{
+                    color: $colorPrimario;
+                }
+        
+                input{
+                    border: 4px solid transparent;
+                    border-radius: 10px;
+                    &::-webkit-input-placeholder{
+                        color: $colorPrimario;
+                        font-size: 0.875rem;
+                    }
+        
+                    &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                        color: $colorPrimario;
+                        font-size: 0.875rem;
+                        opacity: 1 /* esto es porque Firefox le reduce la opacidad por defecto */;
+                    }
+                     
+                    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                        color: $colorPrimario;
+                        font-size: 0.875rem;
+                        opacity:  1;
+                    }
+                    &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                        color: $colorPrimario;
+                        font-size: 0.875rem;
+                    }
+        
+        
+                    &:hover{
+                        box-shadow: 0px 5px 10px rgba(0,0,0,0.16);
+                        border: 4px solid $colorPrimario;
+                    }
+                }
+            }
+    
+            .boton{
+                margin: auto;
+                background: $colorPrimario;
+                color: $colorMostaza;
+                display: block;
+                width: 80%;
+                border: 2px solid transparent;
+                border-radius: 10px;
+    
+                &:hover{
+                    box-shadow: 0px 5px 10px rgba(0,0,0,0.16);
+                    border: 2px solid $colorPrimario;
+                    background: $colorMostaza;
+                    color: $colorPrimario;
+                }
+            }
+            .label-pedido{
+                font-size: 1rem;
+            }
+    
+        
+        }
+    }
+        
+    .listar-productos{
+        .titulo{
+            color:$colorMostaza;
+        }
+        .productosDiv{
+            .card{
+                background: $colorMostaza;
+                color: $colorPrimario;
+                .card-body{
+                    .lista-producto{
+
+                    }
+                    .lista-cantidad{
+
+                    }
+                    .boton-lista{
+
+                    }
+                }
+            }
+        }
+    }  
+    
+    .datos-finales{
+        .contenedor-form-final{
+            background: $colorMostaza;
+            width: 100%;
+            margin: auto;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            .titulo{
+                color:$colorPrimario;
+            }
+            form{
+                // .combo{
+                //     clear: both;
+                // }
+                input{
+                    border: 5px solid transparent;
+                    border-radius: 10px;
+                    &::-webkit-input-placeholder{
+                        color: $colorPrimario;
+                        font-size: 0.875rem;
+                    }
+        
+                    &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                        color: $colorPrimario;
+                        font-size: 0.875rem;
+                        opacity: 1 /* esto es porque Firefox le reduce la opacidad por defecto */;
+                    }
+                     
+                    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                        color: $colorPrimario;
+                        font-size: 0.875rem;
+                        opacity:  1;
+                    }
+                    &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                        color: $colorPrimario;
+                        font-size: 0.875rem;
+                    }
+        
+        
+                    &:hover{
+                        box-shadow: 0px 5px 10px rgba(0,0,0,0.16);
+                        border: 5px solid $colorPrimario;
+                    }
+                }
+                .label-pedidos{
+                    font-size: 1rem;
+                    text-align: center;
+                }
+        
+                .boton{
+                    margin: auto;
+                    background: $colorPrimario;
+                    color: $colorMostaza;
+                    display: block;
+                    width: 80%;
+                    border: 2px solid transparent;
+                    border-radius: 10px;
+        
+                    &:hover{
+                        box-shadow: 0px 5px 10px rgba(0,0,0,0.16);
+                        border: 2px solid $colorPrimario;
+                        background: $colorMostaza;
+                        color: $colorPrimario;
+                    }
+                }
+            }
+        }
+    }
+
+}
+        
+
+@media (min-width:1921px){
+    .pedido{
+        .cabecera{
+            .titulo{
+                font-size: 4rem;
+            }
+            .parrafo-formulario{
+                font-size: 2rem;
+            }
+        }
+        .agregar-productos{
+            .form-pedido{
+                .selectbox{
+                    // padding: 30px 20px 20px 20px;
+                    .select{
+                        .contenido-select{
+                            .titulo-select{
+                                font-size: 2rem;
+                            }
+                        }
+                        .icono{
+                            font-size : 2rem;
+                        }
+                    }
+                    .opciones{
+                        .opcion{
+                            .contenido-opcion{
+                                .textos-opcion{
+                                    .titulo-select{
+                                        font-size: 2rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                .cantidades{
+                    // padding: 20px;
+                    label{
+                        font-size: 2rem;
+                    }
+                    input{
+                        font-size: 2rem;
+                        &::-webkit-input-placeholder{
+                            color: $colorPrimario;
+                            font-size: 2rem;
+                        }
+            
+                        &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                            color: $colorPrimario;
+                            font-size: 2rem;
+                            opacity: 1 /* esto es porque Firefox le reduce la opacidad por defecto */;
+                        }
+                         
+                        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                            color: $colorPrimario;
+                            font-size: 2rem;
+                            opacity:  1;
+                        }
+                        &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                            color: $colorPrimario;
+                            font-size: 2rem;
+                        }
+                    }
+                }
+                .boton{
+                    font-size: 2rem;
+                    margin-bottom: 30px;
+                }
+
+                .label-pedido{
+                    font-size: 2rem;
+                }
+                .label-pedidos{
+                    font-size: 2rem;
+                }       
+                    
+                
+            }
+        }
+        .listar-productos{
+            
+            .titulo{
+                font-size: 3.5rem;
+            }
+            .productosDiv{
+                .card{
+                    margin:40px;
+                    .card-body{
+                        .lista-producto{
+                            font-size: 2rem;
+                        }
+                        .lista-cantidad{
+                            font-size: 2rem;
+                        }
+                        .boton-lista{
+                            font-size: 2rem;
+                        }
+                    }
+                }
+            }
+        }
+        .datos-finales{
+            padding: 30px;
+            .contenedor-form-final{
+                padding:20px;
+                .titulo{
+                    font-size: 3.5rem;
+                }
+                form{
+                    input{
+                        font-size: 2rem;
+                        &::-webkit-input-placeholder{
+                            font-size: 2rem;
+                        }
+            
+                        &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                            font-size: 2rem;
+                        }
+                         
+                        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                            font-size: 2rem;
+                        }
+                        &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                            font-size: 2rem;
+                        }
+
+                    }
+                    .label-pedidos{
+                            .mensaje{
+                                font-size: 2rem;
+                            }
+                    }
+            
+                    .boton{
+                        font-size:2rem;
+                    }
+                }
+            }
+        }
+
+    
+    }
+}
+
+@media(min-width:1441px) and (max-width:1920px){
+    .pedido{
+        .cabecera{
+            .titulo{
+                font-size: 2rem;
+            }
+            .parrafo-formulario{
+                font-size: 1.25rem;
+            }
+        }
+        .agregar-productos{
+            .form-pedido{
+                .selectbox{
+                    // padding: 30px 20px 20px 20px;
+                    .select{
+                        .contenido-select{
+                            .titulo-select{
+                                font-size: 1.25rem;
+                            }
+                        }
+                        .icono{
+                            font-size : 1.25rem;
+                        }
+                    }
+                    .opciones{
+                        .opcion{
+                            .contenido-opcion{
+                                .textos-opcion{
+                                    .titulo-select{
+                                        font-size: 1.25rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                .cantidades{
+                    // padding: 20px;
+                    label{
+                        font-size: 1.25rem;
+                    }
+                    input{
+                        font-size: 1.25rem;
+                        &::-webkit-input-placeholder{
+                            font-size: 1.25rem;
+                        }
+            
+                        &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                            font-size: 1.25rem;
+                        }
+                         
+                        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                            font-size: 1.25rem;
+                        }
+                        &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                            font-size: 1.25rem;
+                        }
+                    }
+                }
+                .boton{
+                    font-size: 1.25rem;
+                    margin-bottom: 30px;
+                }
+                .label-pedido{
+                    font-size: 1.25rem;
+                }       
+            }
+        }
+        .listar-productos{
+            
+            .titulo{
+                font-size: 2rem;
+            }
+            .productosDiv{
+                .card{
+                    .card-body{
+                        .lista-producto{
+                            font-size: 1.25rem;
+                        }
+                        .lista-cantidad{
+                            font-size: 1.25rem;
+                        }
+                        .boton-lista{
+                            font-size: 1.25rem;
+                        }
+                    }
+                }
+            }
+        }
+        .datos-finales{
+            .contenedor-form-final{
+                .titulo{
+                    font-size: 2rem;
+                }
+                form{
+                    input{
+                        font-size: 1.25rem;
+                        &::-webkit-input-placeholder{
+                            font-size: 1.25rem;
+                        }
+            
+                        &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                            font-size: 1.25rem;
+                        }
+                         
+                        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                            font-size: 1.25rem;
+                        }
+                        &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                            font-size: 1.25rem;
+                        }
+
+                    }
+                    .label-pedidos{
+                        .mensaje{
+                            font-size: 1.25rem;
+                        }
+                }
+            
+                    .boton{
+                        font-size:1.25rem;
+                    }
+                }
+            }
+        }
+
+    
+    }
+}
+
+@media(max-width:1024px){
+    .pedido{
+        .cabecera{
+            .titulo{
+                font-size: 1.9rem;
+            }
+            .parrafo-formulario{
+                font-size: 1rem;
+            }
+        }
+        .agregar-productos{
+            .form-pedido{
+                width: 50%;
+                .selectbox{
+                    
+                    // padding: 30px 20px 20px 20px;
+                    .select{
+                       
+                        .icono{
+                            font-size : 1rem;
+                        }
+                    }
+                    .opciones{
+                        .opcion{
+                            .contenido-opcion{
+                                .textos-opcion{
+                                    .titulo-select{
+                                        font-size: 1rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                .cantidades{
+                    // padding:20px;
+                    label{
+                        font-size: 1rem;
+                    }
+                    input{
+                        font-size: 1rem;
+                        &::-webkit-input-placeholder{
+                            font-size: 1rem;
+                        }
+            
+                        &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                            font-size: 1rem;
+                        }
+                         
+                        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                            font-size: 1rem;
+                        }
+                        &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                            font-size: 1rem;
+                        }
+                    }
+                }
+                .boton{
+                    font-size: 1rem;
+                    margin-bottom: 30px;
+                }
+                        
+                .label-pedido{
+                    font-size: 1rem;
+                }
+                
+            }
+        }
+        .listar-productos{
+            
+            .titulo{
+                font-size: 1.9rem;
+            }
+            .productosDiv{
+                .card{
+                    .card-body{
+                        .lista-producto{
+                            font-size: 1rem;
+                        }
+                        .lista-cantidad{
+                            font-size: 1rem;
+                        }
+                        .boton-lista{
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+        .datos-finales{
+            .contenedor-form-final{
+                .titulo{
+                    font-size: 1.9rem;
+                }
+                form{
+                    input{
+                        font-size: 1rem;
+                        &::-webkit-input-placeholder{
+                            font-size: 1rem;
+                        }
+            
+                        &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                            font-size: 1rem;
+                        }
+                         
+                        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                            font-size: 1rem;
+                        }
+                        &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                            font-size: 1rem;
+                        }
+
+                    }
+                    .label-pedidos{
+                        .mensaje{
+                            font-size: 1rem;
+                        }
+                }
+            
+                    .boton{
+                        font-size:1rem;
+                    }
+                }
+            }
+        }
+
+    
+    }
+}
+
+@media (max-width: 992px){
+    .pedido{
+        .cabecera{
+            .titulo{
+                font-size: 2rem;
+            }
+            .parrafo-formulario{
+                font-size: 1rem;
+            }
+        }
+        .agregar-productos{
+            .form-pedido{
+                width: 50%;
+                .selectbox{
+                    
+                    // padding: 30px 20px 20px 20px;
+                    .select{
+                        .icono{
+                            font-size : 1rem;
+                        }
+                    }
+                    .opciones{
+                        .opcion{
+                            .contenido-opcion{
+                                .textos-opcion{
+                                    .titulo-select{
+                                        font-size: 1rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                .cantidades{
+                    // padding:20px;
+                    label{
+                        font-size: 1rem;
+                    }
+                    input{
+                        font-size: 1rem;
+                        &::-webkit-input-placeholder{
+                            font-size: 1rem;
+                        }
+            
+                        &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                            font-size: 1rem;
+                        }
+                         
+                        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                            font-size: 1rem;
+                        }
+                        &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                            font-size: 1rem;
+                        }
+                    }
+                }
+                .boton{
+                    font-size: 1rem;
+                    margin-bottom: 30px;
+                }
+                .label-pedido{
+                    font-size: 1rem;
+                }      
+                    
+                
+            }
+        }
+        .listar-productos{
+            
+            .titulo{
+                font-size: 2rem;
+            }
+            .productosDiv{
+                .card{
+                    .card-body{
+                        .lista-producto{
+                            font-size: 1rem;
+                        }
+                        .lista-cantidad{
+                            font-size: 1rem;
+                        }
+                        .boton-lista{
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+        .datos-finales{
+            .contenedor-form-final{
+                .titulo{
+                    font-size: 2rem;
+                }
+                form{
+                    input{
+                        font-size: 1rem;
+                        &::-webkit-input-placeholder{
+                            font-size: 1rem;
+                        }
+            
+                        &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                            font-size: 1rem;
+                        }
+                         
+                        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                            font-size: 1rem;
+                        }
+                        &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                            font-size: 1rem;
+                        }
+
+                    }
+                    .label-pedidos{
+                        .mensaje{
+                            font-size: 1rem;
+                        }
+                }
+            
+                    .boton{
+                        font-size:1rem;
+                    }
+                }
+            }
+        }
+
+    
+    }
+}
+
+@media (max-width: 768px){
+    .pedido{
+        .cabecera{
+            .titulo{
+                font-size: 1.8rem;
+            }
+            .parrafo-formulario{
+                font-size: 1rem;
+            }
+        }
+        .agregar-productos{
+            padding:30px 0px;
+            .form-pedido{
+                width: 100%;
+                .selectbox{
+                    
+                    // padding: 30px 20px 20px 20px;
+                    .select{
+                        .icono{
+                            font-size : 1rem;
+                        }
+                    }
+                    .opciones{
+                        .opcion{
+                            .contenido-opcion{
+                                .textos-opcion{
+                                    .titulo-select{
+                                        font-size: 1rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                .cantidades{
+                    // padding:20px;
+                    label{
+                        font-size: 1rem;
+                    }
+                    input{
+                        font-size: 1rem;
+                        &::-webkit-input-placeholder{
+                            font-size: 1rem;
+                        }
+            
+                        &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                            font-size: 1rem;
+                        }
+                         
+                        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                            font-size: 1rem;
+                        }
+                        &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                            font-size: 1rem;
+                        }
+                    }
+                }
+                .boton{
+                    font-size: 1rem;
+                    margin-bottom: 30px;
+                }
+                        
+                    
+                
+            }
+        }
+        .listar-productos{
+            padding-top:20px;
+            .titulo{
+                font-size: 1.8rem;
+            }
+            .productosDiv{
+                .card{
+                    .card-body{
+                        .lista-producto{
+                            font-size: 1rem;
+                        }
+                        .lista-cantidad{
+                            font-size: 1rem;
+                        }
+                        .boton-lista{
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+        .datos-finales{
+            padding-top: 30px;
+            .contenedor-form-final{
+                margin-top: 0;
+                .titulo{
+                    font-size: 1.3rem;
+                }
+                form{
+                    input{
+                        font-size: 1rem;
+                        &::-webkit-input-placeholder{
+                            font-size: 1rem;
+                        }
+            
+                        &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                            font-size: 1rem;
+                        }
+                         
+                        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                            font-size: 1rem;
+                        }
+                        &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                            font-size: 1rem;
+                        }
+
+                    }
+                    .label-pedidos{
+                        .mensaje{
+                            font-size: 1rem;
+                        }
+                }
+            
+                    .boton{
+                        font-size:1rem;
+                    }
+                }
+            }
+        }
+
+    
+    }
+
+}
+
+@media (max-width: 576px){
+    .pedido{
+        .cabecera{
+            .titulo{
+                font-size: 1.5rem;
+            }
+            .parrafo-formulario{
+                padding:0 2.5px;
+                font-size: 0.875rem;
+            }
+        }
+        .agregar-productos{
+            padding:30px 0px;
+            .form-pedido{
+                width: 100%;
+                .selectbox{
+                    
+                    // padding: 30px 20px 20px 20px;
+                    .select{
+                        .contenido-select{
+                            .titulo-select{
+                                font-size: 0.875rem;
+                            }
+                        }
+                        .icono{
+                            font-size : 0.875rem;
+                        }
+                    }
+                    .opciones{
+                        .opcion{
+                            .contenido-opcion{
+                                .textos-opcion{
+                                    .titulo-select{
+                                        font-size: 0.875rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                .cantidades{
+                    // padding:20px;
+                    label{
+                        font-size: 0.875rem;
+                    }
+                    input{
+                        font-size: 0.875rem;
+                        &::-webkit-input-placeholder{
+                            font-size: 0.875rem;
+                        }
+            
+                        &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                            font-size: 0.875rem;
+                        }
+                         
+                        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                            font-size: 0.875rem;
+                        }
+                        &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                            font-size: 0.875rem;
+                        }
+                    }
+                }
+                .boton{
+                    font-size: 0.875rem;
+                    margin-bottom: 30px;
+                }
+                .label-pedido{
+                    font-size: 0.875rem;
+                }
+                        
+                    
+                
+            }
+        }
+        .listar-productos{
+            padding-top:20px;
+            .titulo{
+                font-size: 1.5rem;
+            }
+            .productosDiv{
+                .card{
+                    .card-body{
+                        .lista-producto{
+                            font-size: 0.875rem;
+                        }
+                        .lista-cantidad{
+                            font-size: 0.875rem;
+                        }
+                        .boton-lista{
+                            font-size: 0.875rem;
+                        }
+                    }
+                }
+            }
+        }
+        .datos-finales{
+            padding-top: 30px;
+            .contenedor-form-final{
+                margin-top: 0;
+                .titulo{
+                    font-size: 1.5rem;
+                }
+                form{
+                    input{
+                        font-size: 0.875rem;
+                        &::-webkit-input-placeholder{
+                            font-size: 0.875rem;
+                        }
+            
+                        &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                            font-size: 0.875rem;
+                        }
+                         
+                        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                            font-size: 0.875rem;
+                        }
+                        &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                            font-size: 0.875rem;
+                        }
+
+                    }
+                    .label-pedidos{
+                        .mensaje{
+                            font-size: 0.875rem;
+                        }
+                    }
+            
+                    .boton{
+                        font-size:0.875rem;
+                    }
+                }
+            }
+        }
+
+    
+    }
+}
+
+@media (max-width: 425px){
+    .pedido{
+        .cabecera{
+            .titulo{
+                font-size: 1.3rem;
+            }
+            .parrafo-formulario{
+                font-size: 0.8125rem;
+            }
+        }
+        .agregar-productos{
+            padding:30px 0px;
+            .form-pedido{
+                width: 100%;
+                .selectbox{
+                    
+                    // padding: 30px 20px 20px 20px;
+                    .select{
+                        .contenido-select{
+                            .titulo-select{
+                                font-size: 0.8125rem;
+                            }
+                        }
+                        .icono{
+                            font-size : 0.8125rem;
+                        }
+                    }
+                    .opciones{
+                        .opcion{
+                            .contenido-opcion{
+                                .textos-opcion{
+                                    .titulo-select{
+                                        font-size: 0.8125rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                .cantidades{
+                    // padding:20px;
+                    label{
+                        font-size: 0.8125rem;
+                    }
+                    input{
+                        font-size: 0.8125rem;
+                        &::-webkit-input-placeholder{
+                            font-size: 0.8125rem;
+                        }
+            
+                        &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                            font-size: 0.8125rem;
+                        }
+                         
+                        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                            font-size: 0.8125rem;
+                        }
+                        &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                            font-size: 0.8125rem;
+                        }
+                    }
+                }
+                .boton{
+                    font-size: 0.8125rem;
+                    margin-bottom: 30px;
+                }
+                .label-pedido{
+                    font-size: 0.8125rem;
+                }
+                        
+                    
+                
+            }
+        }
+        .listar-productos{
+            padding-top:20px;
+            .titulo{
+                font-size: 1.3rem;
+            }
+            .productosDiv{
+                .card{
+                    .card-body{
+                        .lista-producto{
+                            font-size: 0.8125rem;
+                        }
+                        .lista-cantidad{
+                            font-size: 0.8125rem;
+                        }
+                        .boton-lista{
+                            font-size: 0.8125rem;
+                        }
+                    }
+                }
+            }
+        }
+        .datos-finales{
+            padding-top: 30px;
+            .contenedor-form-final{
+                margin-top: 0;
+                .titulo{
+                    font-size: 1.3rem;
+                }
+                form{
+                    input{
+                        font-size: 0.8125rem;
+                        &::-webkit-input-placeholder{
+                            font-size: 0.8125rem;
+                        }
+            
+                        &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                            font-size: 0.8125rem;
+                        }
+                         
+                        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                            font-size: 0.8125rem;
+                        }
+                        &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                            font-size: 0.8125rem;
+                        }
+
+                    }
+                    
+                    .label-pedidos{
+                        .mensaje{
+                            font-size: 0.8125rem;
+                        }
+                    }
+            
+            
+                    .boton{
+                        font-size:0.8125rem;
+                    }
+                }
+            }
+        }
+
+    
+    }
+}
+
+@media (max-width: 320px){
+    .pedido{
+        .cabecera{
+            .titulo{
+                font-size: 1.2rem;
+            }
+            .parrafo-formulario{
+                font-size: 0.75rem;
+            }
+        }
+        .agregar-productos{
+            padding:30px 0px;
+            .form-pedido{
+                width: 100%;
+                .selectbox{
+                    
+                    // padding: 30px 20px 20px 20px;
+                    .select{
+                        .contenido-select{
+                            .titulo-select{
+                                font-size: 0.75rem;
+                            }
+                        }
+                        .icono{
+                            font-size : 0.75rem;
+                        }
+                    }
+                    .opciones{
+                        .opcion{
+                            .contenido-opcion{
+                                .textos-opcion{
+                                    .titulo-select{
+                                        font-size: 0.75rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                .cantidades{
+                    // padding:20px;
+                    label{
+                        font-size: 0.75rem;
+                    }
+                    input{
+                        font-size: 0.75rem;
+                        &::-webkit-input-placeholder{
+                            font-size: 0.75rem;
+                        }
+            
+                        &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                            font-size: 0.75rem;
+                        }
+                         
+                        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                            font-size: 0.75rem;
+                        }
+                        &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                            font-size: 0.75rem;
+                        }
+                    }
+                }
+                .boton{
+                    font-size: 0.75rem;
+                    margin-bottom: 30px;
+                }
+                .label-pedido{
+                    font-size: 0.5rem;
+                }
+                        
+                    
+                
+            }
+        }
+        .listar-productos{
+            padding-top:20px;
+            .titulo{
+                font-size: 1.2rem;
+            }
+            .productosDiv{
+                .card{
+                    .card-body{
+                        .lista-producto{
+                            font-size: 0.75rem;
+                        }
+                        .lista-cantidad{
+                            font-size: 0.75rem;
+                        }
+                        .boton-lista{
+                            font-size: 0.75rem;
+                        }
+                    }
+                }
+            }
+        }
+        .datos-finales{
+            padding-top: 30px;
+            .contenedor-form-final{
+                margin-top: 0;
+                .titulo{
+                    font-size: 1.2rem;
+                }
+                form{
+                    input{
+                        font-size: 0.5rem;
+                        &::-webkit-input-placeholder{
+                            font-size: 0.5rem;
+                        }
+            
+                        &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                            font-size: 0.5rem;
+                        }
+                         
+                        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                            font-size: 0.5rem;
+                        }
+                        &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+                            font-size: 0.5rem;
+                        }
+
+                    }
+                    .label-pedidos{
+                        .mensaje{
+                            font-size: 0.5rem;
+                        }
+                    }
+            
+            
+                    .boton{
+                        font-size:0.75rem;
+                    }
+                }
+            }
+        }
+
+    
+    }
+}

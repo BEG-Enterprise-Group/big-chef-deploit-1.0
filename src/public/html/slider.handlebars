@@ -1,0 +1,107 @@
+<div class="sliders container-fluid">
+    <div id="heavy" class="slide azul">
+        <div class="row">
+            <div class="izquierda productos col-6" data-aos="fade-right">
+                <h4 class="subtitulo1 d-none d-md-block">Para las tareas mas duras tenemos una opción para ti</h4>
+                <h2 class="subtitulo2 d-none d-md-block">
+                    <span class="titulo-uno">Mayonesa </span><span class="titulo-dos heavy">Heavy duty</span>
+                </h2>
+                <button id="btnHeavy" type="button" class="heavy saberMas boton d-inline-block btn btn-mas ">Saber Más</button>
+                <a id="realizarPedido" href="#pedido" class="realizarPedido boton d-inline-block btn btn-heavy">Realizar Pedido</a>
+            </div>
+            <div class="contenedor-imagen col-6">
+                <img loading="lazy" src="./img/slider1.png" class="imagen img-fluid">
+            </div>
+        </div>
+    </div>
+    <div id="tradicional" class="slide mostaza" data-aos="zoom-in">
+        <div class="row">
+            <div class="productos col-6">
+                <h4 class="subtitulo1 d-none d-md-block">Con el sabor como la conoces desde siempre</h4>
+                <h2 class="subtitulo2 d-none d-md-block">
+                    <span class="titulo-uno">Mayonesa </span><span class="titulo-dos ">Tradicional</span>
+                </h2>
+                <button id="btnTradicional" class="tradicional saberMas boton btn-tradicional d-inline-block btn btn-mas">Saber
+                    Más</button>
+                <a id="realizarPedido" href="#pedido" class="realizarPedido boton d-inline-block btn btn-pedido">Realizar Pedido</a>
+            </div>
+            <div class="col-6 contenedor-imagen">
+                <img loading="lazy" data-src="./img/slider2.png" class="imagen img-fluid">
+            </div>
+        </div>
+    </div>
+    {{!-- <div class="slide mostaza" data-aos="fade-down">
+        <div class="row">
+            <div class="productos d-none d-md-block col-md-6">
+                <h4 class="subtitulo1 ">Porque no nos olvidamos de nuestros inicios</h4>
+                <h2 class="subtitulo2">
+                    <span class="titulo-uno heavy">Mayonesa Heavy duty </span> y <span
+                        class="titulo-dos mostaza">Mostaza </span>
+                </h2>
+            </div>
+            <div class="col-12 col-md-6 contenedor-imagen">
+                <img loading="lazy" data-src="./img/slider3.png" class="imagen img-fluid imagen-mostaza">
+            </div>
+        </div>
+    </div> --}}
+    <div id="pina" class="slide rojo" data-aos="fade-left">
+        <div class="row">
+            <div class="productos col-6">
+                <h4 class="subtitulo1 d-none d-md-block">Piña de pura pulpa para endulzar tus platos preferidos</h4>
+                <h2 class="subtitulo2 d-none d-md-block">
+                    <span class="titulo-uno">Salsa </span><span class="titulo-dos pina">Piña</span>
+                </h2>
+                <button id="btnPina" class="pina saberMas boton d-inline-block btn btn-mas">Saber Más</button>
+                <a id="realizarPedido" href="#pedido" class="realizarPedido boton d-inline-block btn btn-pina">Realizar Pedido</a>
+            </div>
+            <div class="col-6 contenedor-imagen">
+                <img loading="lazy" data-src="./img/slider4.png" class="imagen img-fluid">
+            </div>
+        </div>
+    </div>
+    <div id="tomate" class="slide amarillo" data-aos="fade-up-right">
+        <div class="row">
+            <div class="productos col-6">
+                <h4 class="subtitulo1 d-none d-md-block">Hecha con tomates frescos 100% orgánicos</h4>
+                <h2 class="subtitulo2 d-none d-md-block">
+                    <span class="titulo-uno">Salsa </span>con <span class="titulo-dos tomate">Tomate</span>
+                </h2>
+                <button id="btnTomate" class="tomate saberMas boton d-inline-block btn btn-mas">Saber Más</button>
+                <a id="realizarPedido" href="#pedido" class="realizarPedido boton d-inline-block btn btn-tomate">Realizar Pedido</a>
+            </div>
+            <div class="col-6 contenedor-imagen">
+                <img loading="lazy" data-src="./img/slider5.png" class="imagen img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modelId1" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" id="contenido2" role="document">
+        <div class="modal-content color">
+            <div class="modal-header">
+                <h5 id="titulo-modal" class="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="cerrar" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <img loading="lazy" id="imagen-modal" data-src="" class="imagen-modal imagen img-fluid" alt="">
+                        </div>
+                        <div class="col-sm-12 col-md-6 ml-auto">
+                            <p id="parrafo-modal" class="parrafo-modal align-self-center"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="boton btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,180 @@
+header{
+    nav{
+        overflow: hidden;
+        .logo{
+            width: 30%;
+            margin: auto;
+            .imagen-logo{
+                width: 60%;
+            }
+        }
+        .menu{
+            ul{
+                li{
+                    margin-left: 30px;
+                    a{
+                        &.link{
+                            border-bottom: 0.1875rem solid transparent;
+                            font-size: 0.75rem;
+                            text-decoration: none;
+                            margin: 0;
+                            transition: .2s ease all;
+                            cursor: pointer;
+                            color:$colorPrimario;
+                            font-weight: 700;
+                        }
+                        &.active{
+                            color:$colorHeavy;
+                            border-bottom: 0.1875rem solid $colorMostaza;
+                        }
+                        &:hover{
+                            color:$colorHover;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width:1921px){
+    header{
+        nav{
+            .menu{
+                ul{
+                    li{
+                        a{
+                            &.link{
+                                font-size: 1.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media (min-width:1441px) and (max-width:1920px){
+    header{
+        nav{
+            .menu{
+                ul{
+                    li{
+                        a{
+                            &.link{
+                                font-size: 1rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:1200px){
+    header{
+        nav{
+            .menu{
+                ul{
+                    li{
+                        margin-left:20px;
+                        a{
+                            &.link{
+                                font-size: 0.625rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:768px){
+    header{
+        nav{
+            .logo{
+                width: 50%;
+                margin: auto;
+                .imagen-logo{
+                    display: block;
+                    margin:auto;
+                    width: 60%;
+                }
+            }
+            button{
+                position: absolute;
+                left: 90vw;
+            }
+            .menu{
+                ul{
+                    li{
+                        a{
+                            &.link{
+                                font-size: 0.75rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width:576px){
+    header{
+        nav{
+            .logo{
+                width: 60%;
+                margin: auto;
+                .imagen-logo{
+                    display: block;
+                    margin:auto;
+                    width: 60%;
+                }
+            }
+            button{
+                position: absolute;
+                left: 90vw;
+            }
+        }
+    }
+}
+@media (max-width:425px){
+    header{
+        nav{
+            .logo{
+                width: 70%;
+                margin: auto;
+                .imagen-logo{
+                    display: block;
+                    margin:auto;
+                    width: 60%;
+                }
+            }
+            button{
+                position: absolute;
+                left: 88vw;
+            }
+        }
+    }
+}
+@media (max-width:320px){
+    header{
+        nav{
+            .logo{
+                width: 80%;
+                margin: auto;
+                .imagen-logo{
+                    display: block;
+                    margin:auto;
+                    width: 60%;
+                }
+            }
+            button{
+                position: absolute;
+                left: 86vw;
+            }
+        }
+    }
+}

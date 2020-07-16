@@ -1,0 +1,481 @@
+.recetas{
+    padding: 50px 0;
+    background: $colorMostaza;
+    overflow: hidden;
+    .titulo{
+        padding-bottom: 20px;
+        color:$colorPrimario;
+    }
+    .receta{
+        .contenido-receta{
+            padding: 10px 20px;
+            .contenido{
+                box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+                background: $colorPrimario;
+                border: 5px solid #fff;
+                border-radius: 5px;
+                position: relative;
+                .foto{
+                    position: relative;
+                    width: 100%;
+                    .imagen{
+                        width: 100%;    
+                    }
+                }
+                
+                .info-receta{
+                    padding: 20px;
+                    color: $colorMostaza;
+                    margin-top: 10px;
+                    .titulo-receta{
+                        font-weight: 600;
+                    }
+                    .texto-receta{
+                        a{
+                            text-decoration: none;
+                        }
+                    }
+                }
+                .boton{
+                    border-radius: 0;
+                    background: $colorMostaza;
+                    color: $colorPrimario;
+                    border: 2px solid transparent;
+                    &:hover{
+                        background: $colorPrimario;
+                        color:$colorMostaza;
+                        border: 2px solid $colorMostaza;
+                    }
+        
+                }
+            }
+                
+        }
+    }
+}
+
+@media (min-width:1921px){
+    .recetas{
+        .titulo{
+            font-size: 4rem;
+            padding-bottom: 40px;
+        }
+        .receta{
+            .contenido-receta{
+                .contenido{
+                    border: 8px solid #fff;
+                    border-radius: 8px;
+                    .info-receta{
+                        .titulo-receta{
+                            font-size: 3rem;
+                        }
+                        .divReceta{
+                            padding: 20px;
+                            .titulo-uno{
+                                font-size: 2.5rem;
+                            }
+                            .cuerpo{
+                                padding: 20px;
+                                font-size: 2rem;
+
+                            }
+                            .subtitulo-uno{
+                                font-size: 2.5rem;
+                            }
+                        }
+                        .texto-receta{
+                            font-size: 2rem;
+                        }
+                    }
+                    .boton{
+                        font-size: 2rem;
+                    }
+                }
+            }
+            
+        }
+    }
+
+}
+
+@media(min-width:1441px) and (max-width:1920px){
+    .recetas{
+        .titulo{
+            font-size: 2rem;
+            padding-bottom: 30px;
+        }
+        .receta{
+            .contenido-receta{
+                .contenido{
+                    .foto{
+                        padding:0;
+                    }
+                    .fotografia{
+                        border-radius: 100%;
+                        width: 20%;
+                        top: 38%;
+                        &.segunda{
+                            top:35%;
+                        }
+                    }
+                    .info-receta{
+                        .titulo-receta{
+                            font-size: 2rem;
+                        }
+                        .divReceta{
+                            padding: 20px;
+                            .titulo-uno{
+                                font-size: 2rem;
+                            }
+                            .cuerpo{
+                                padding: 20px;
+                                font-size: 1.25rem;
+
+                            }
+                            .subtitulo-uno{
+                                font-size: 2rem;
+                            }
+                        }
+                        .texto-receta{
+                            font-size: 1.25rem;
+                        }
+                    }
+                    .boton{
+                        font-size: 1.25rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px){
+    .recetas{
+        .receta{
+            .contenido-receta{
+                .contenido{
+                    .fotografia{
+                        top: 25%;
+                        &.segunda{
+                            top:22%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:1024px){
+    .recetas{
+        .titulo{
+            font-size: 1.9rem;
+            padding-bottom: 40px;
+        }
+        .receta{
+            .contenido-receta{
+                .contenido{
+                    .foto{
+                        padding:0;
+                    }
+                    .fotografia{
+                        border-radius: 100%;
+                        width: 28%;
+                        left: 5%;
+                        top: 28%;
+                        &.segunda{
+                            top:22%;
+                        }
+                    }
+                    .info-receta{
+                        .titulo-receta{
+                            font-size: 1.4rem;
+                        }
+                        .divReceta{
+                            padding: 20px;
+                            .titulo-uno{
+                                font-size: 1.4rem;
+                            }
+                            .cuerpo{
+                                padding: 20px;
+                                font-size: 1.1rem;
+
+                            }
+                            .subtitulo-uno{
+                                font-size: 1.4rem;
+                            }
+                        }
+                        .texto-receta{
+                            font-size: 1rem;
+                        }
+                    }
+                    .boton{
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px){
+    .recetas{
+        .titulo{
+            font-size: 1.8rem;
+            padding-bottom: 40px;
+        }
+        .receta{
+            .contenido-receta{
+                .contenido{
+                    .foto{
+                        padding:0;
+                    }
+                    .fotografia{
+                        border-radius: 100%;
+                        width: 20%;
+                        left: 5%;
+                        top: 28%;
+                        &.segunda{
+                            top:22%;
+                        }
+                    }
+                    .info-receta{
+                        .titulo-receta{
+                            font-size: 1.3rem;
+                        }
+                        .divReceta{
+                            padding: 20px;
+                            .titulo-uno{
+                                font-size: 1.3rem;
+                            }
+                            .cuerpo{
+                                padding: 20px;
+                                font-size: 1rem;
+
+                            }
+                            .subtitulo-uno{
+                                font-size: 1.3rem;
+                            }
+                        }
+                        .texto-receta{
+                            font-size: 1rem;
+                        }
+                    }
+                    .boton{
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .recetas{
+        .titulo{
+            font-size: 1.8rem;
+            padding-bottom: 40px;
+        }
+        .receta{
+            .contenido-receta{
+                .contenido{
+                    .foto{
+                        padding:0;
+                    }
+                    .fotografia{
+                        border-radius: 100%;
+                        width: 20%;
+                        left: 5%;
+                        top: 30%;
+                        &.segunda{
+                            top:25%;
+                        }
+                    }
+                    .info-receta{
+                        .titulo-receta{
+                            font-size: 1.3rem;
+                        }
+                        .divReceta{
+                            padding: 20px;
+                            .titulo-uno{
+                                font-size: 1.3rem;
+                            }
+                            .cuerpo{
+                                padding: 20px;
+                                font-size: 1rem;
+
+                            }
+                            .subtitulo-uno{
+                                font-size: 1.3rem;
+                            }
+                        }
+                        .texto-receta{
+                            font-size: 1rem;
+                        }
+                    }
+                    .boton{
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px){
+    .recetas{
+        .titulo{
+            font-size: 1.5em;
+            padding-bottom: 40px;
+        }
+        .receta{
+            .contenido-receta{
+                .contenido{
+                    .foto{
+                        padding:0;
+                    }
+                    .fotografia{
+                        border-radius: 100%;
+                        width: 20%;
+                        left: 5%;
+                        top: 45%;
+                        &.segunda{
+                            top:41%;
+                        }
+                    }
+                    .info-receta{
+                        .titulo-receta{
+                            font-size: 1.3rem;
+                        }
+                        .divReceta{
+                            padding: 20px;
+                            .titulo-uno{
+                                font-size: 1.3rem;
+                            }
+                            .cuerpo{
+                                padding: 20px;
+                                font-size: 0.875rem;
+
+                            }
+                            .subtitulo-uno{
+                                font-size: 1.3rem;
+                            }
+                        }
+                        .texto-receta{
+                            font-size: 0.875rem;
+                        }
+                    }
+                    .boton{
+                        font-size: 0.875rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 425px){
+    .recetas{
+        .titulo{
+            font-size: 1.3rem;
+            padding-bottom: 40px;
+        }
+        .receta{
+            .contenido-receta{
+                .contenido{
+                    .foto{
+                        padding:0;
+                    }
+                    .fotografia{
+                        border-radius: 100%;
+                        width: 20%;
+                        left: 5%;
+                        top: 38%;
+                        &.segunda{
+                            top:34%;
+                        }
+                    }
+                    .info-receta{
+                        .titulo-receta{
+                            font-size: 1rem;
+                        }
+                        .divReceta{
+                            padding: 20px;
+                            .titulo-uno{
+                                font-size: 1rem;
+                            }
+                            .cuerpo{
+                                padding: 20px;
+                                font-size: 0.8125rem;
+
+                            }
+                            .subtitulo-uno{
+                                font-size: 1rem;
+                            }
+                        }
+                        .texto-receta{
+                            font-size: 0.8125rem;
+                        }
+                    }
+                    .boton{
+                        font-size: 0.8125rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 320px){
+    .recetas{
+        .titulo{
+            font-size: 1.2rem;
+            padding-bottom: 40px;
+        }
+        .receta{
+            .contenido-receta{
+                .contenido{
+                    .foto{
+                        padding:0;
+                    }
+                    .fotografia{
+                        border-radius: 100%;
+                        width: 20%;
+                        left: 5%;
+                        top: 32%;
+                        &.segunda{
+                            top:28%;
+                        }
+                    }
+                    .info-receta{
+                        .titulo-receta{
+                            font-size: 1rem;
+                        }
+                        .divReceta{
+                            padding: 20px;
+                            .titulo-uno{
+                                font-size: 1rem;
+                            }
+                            .cuerpo{
+                                padding: 20px;
+                                font-size: 0.75rem;
+
+                            }
+                            .subtitulo-uno{
+                                font-size: 1rem;
+                            }
+                        }
+                        .texto-receta{
+                            font-size: 0.75rem;
+                        }
+                    }
+                    .boton{
+                        font-size: 0.75rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
