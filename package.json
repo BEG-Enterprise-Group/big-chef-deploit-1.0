@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=development nodemon index.js",
-    "postinstall": "webpack --config webpack.config.js",
+    "heroku-postbuild": "webpack -p",
     "start": "NODE_ENV=production node index.js"
   },
   "keywords": [],
