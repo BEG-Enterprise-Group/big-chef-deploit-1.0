@@ -3,9 +3,9 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
+const devMode = process.env.NODE_ENV !== 'production';
 
 const config = {
-    mode: 'production',
     optimization: {
         splitChunks: {
             // chunks:'async',
@@ -26,7 +26,7 @@ const config = {
         },
     },
 
-    entry: __dirname + '/frontend/app.js',
+    entry: './frontend/app.js',
     output: {
         path: path.join(__dirname,'backend/public'),
         filename: 'js/[name].[chunkHash].bundle.js',
@@ -48,7 +48,7 @@ const config = {
             {
                 test: /\.(sa|c|sc)ss$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
                     {loader: 'css-loader',options:{sourceMap:true}},
                     {
                         loader: 'postcss-loader',
