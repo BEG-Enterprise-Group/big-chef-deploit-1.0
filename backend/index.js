@@ -1,66 +1,47 @@
-if (process.env.NODE_ENV === 'development'){
-    require('dotenv').config();
+if (process.env.NODE_ENV === "development") {
+  require("dotenv").config();
 }
 
-const express = require('express');
+const express = require("express");
+
+/**
+ * INICIALIZACIONES
+ */
 const app = express();
+const corsServer = require('cors');
+// const bodyParser = require('body-parser');
+const morgan = require('morgan');
 const path = require('path');
 
 
 /**
- * WEBPACK
+ * CONFIGURACIONES
  */
-
-// const webpack = require ('webpack');
-// const webpackMiddleware = require ('webpack-dev-middleware');
-// const webpackConfig = require ('../webpack.config');
+app.set("port", process.env.PORT || 3000);
 
 /**
- * MIDDLEWARE   
+ * MIDDLEWARES
  */
-
-    // app.use(webpackMiddleware(webpack(webpackConfig)));
-    
-    
-    /**
-     * ENTENDER LOS DATOS DE UN FORMULARIO
-     */
-    app.use(express.urlencoded({extended: false}));
-    app.use(express.json());
-    
-    
-    
-    /**
-     * RUTA PARA EL ENVIO A TRAVEZ DEL METODO POST
-     */
-    app.use(require('./routes/index'));
-    
-    /**
-     * CONFIGURACION DEL PUERTO
-     */
-
-    app.set('port',process.env.PORT || 3000);
+app.use(morgan('dev'));
+app.use(corsServer());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 
-    /**
-     * CARPETA PUBLICA 
-     */
-    // app.use(express.static(__dirname + '/dist'));
-
-    app.use(express.static(path.resolve(__dirname,'public')));
-    // app.get('*',(req,res)=>{
-    //     res.sendFile(path.resolve(__dirname,'index.html'));
-    // });
-
-    /**
-     * ARRANCANDO EL SERVIDOR
-     */
-    app.listen(app.get('port'),()=>{
-        console.log(`Server on port ${app.get('port')}`);
-    });
-
-    
-    
+/**
+ * ROUTES
+ */
+app.use('/api',require('./routes/index'));
 
 
+/**
+ * * CARPETA PUBLICA
+ */
+app.use(express.static(path.join(__dirname,'public')));
 
+/**
+ * ARRANCANDO EL SERVIDOR
+ */
+app.listen(app.get("port"), () => {
+  console.log(`Server on port ${app.get('port')}`);
+});

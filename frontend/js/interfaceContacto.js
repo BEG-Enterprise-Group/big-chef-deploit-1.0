@@ -164,6 +164,7 @@ export class Interfaz {
       
   }
   enviarCorreoContacto(){
-      enviarCorreo()
+      enviarCorreo();
   }
 }
+

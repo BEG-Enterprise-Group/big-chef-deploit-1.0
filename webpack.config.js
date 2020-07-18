@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
-const devMode = process.env.NODE_ENV !== 'production';
 
 const config = {
     optimization: {
@@ -26,7 +25,9 @@ const config = {
         },
     },
 
-    entry: './frontend/app.js',
+    mode: 'production',
+
+    entry: ['@babel/polyfill','./frontend/app.js'],
     output: {
         path: path.join(__dirname,'backend/public'),
         filename: 'js/[name].[chunkHash].bundle.js',
@@ -48,7 +49,7 @@ const config = {
             {
                 test: /\.(sa|c|sc)ss$/,
                 use: [
-                    devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    MiniCssExtractPlugin.loader,
                     {loader: 'css-loader',options:{sourceMap:true}},
                     {
                         loader: 'postcss-loader',
@@ -82,7 +83,7 @@ const config = {
                         options:{
                             limit: 30000,
                             name: '[name].[ext]',
-                            outputPath: '/img',
+                            outputPath: 'img/',
                             useRelativePath: true,
                             fallback: require.resolve('file-loader'),
                         }
@@ -98,7 +99,7 @@ const config = {
                         loader: 'file-loader',
                         options: {
                             name:'[name].[ext]',
-                            outputPath: '/img',
+                            outputPath: 'img/',
                             useRelativePath: true
                         }
                     },

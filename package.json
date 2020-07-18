@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node backend/index.js  --ignore frontend",
+    "start": "cross-env NODE_ENV=production node backend/index.js",
     "dev": "cross-env NODE_ENV=development nodemon backend/index.js",
-    "build": "cross-env NODE_ENV=production webpack",
-    "dev-webpack": "webpack-dev-server"
+    "build": "rimraf backend/public && cross-env NODE_ENV=production && webpack",
+    "dev-webpack": "cross-env NODE_ENV=development webpack-dev-server"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +19,6 @@
     "@babel/preset-env": "^7.10.4",
     "aos": "^2.3.4",
     "autoprefixer": "^9.8.5",
-    "axios": "^0.19.2",
     "babel": "^6.23.0",
     "babel-loader": "^8.1.0",
     "bootstrap": "^4.5.0",
@@ -49,9 +48,11 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "morgan": "^1.10.0",
     "nodemailer": "^6.4.10"
   }
 }

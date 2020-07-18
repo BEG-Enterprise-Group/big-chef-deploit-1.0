@@ -29,4 +29,5 @@ document.querySelector('#formulario-contacto').addEventListener('submit',(e)=>{
     enviarContacto.setCorreo = correo;
     enviarContacto.setMensaje = mensaje;
     enviarContacto.validarContacto();
+    
 });
