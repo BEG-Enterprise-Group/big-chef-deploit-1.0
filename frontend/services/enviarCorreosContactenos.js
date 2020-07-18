@@ -2,7 +2,7 @@ import { Respuesta } from "./respuestaAutomaticaContactenos";
 import {Interfaz} from '../js/interfaceContacto';
 export class EnvioCorreosContactenos {
   constructor() {
-    this.URI = "http://localhost:3000/api/correos/contactenos";
+    this.URI = "https://big-chef.herokuapp.com/api/correos/contactenos";
   }
 
   async postEmail(correo) {
