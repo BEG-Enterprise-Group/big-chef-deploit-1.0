@@ -33,7 +33,7 @@ document.querySelector('#form-pedido').addEventListener('submit',(e)=>{
 });
 //ELIMINAR UNA CARD DE LA LISTA
 // document.querySelector("#listar-productos").addEventListener("click", (e) => {
-  $('#listar-productos').on('click','#boton-lista',(e)=>{
+  $('#listar-productos').on('click','.boton-lista',(e)=>{
     try {
       //CORREGIR EL TEMA DEL ELIMINAR ESTA SALIENDO EL MENSAJE ANTE CUALQUIER CLICK DENTRO DEL DIV 
       const eliminar = new Interfaz();

@@ -1,6 +1,6 @@
 import {Interface} from './interfaceSlider';
 const saberMas = document.querySelectorAll('.saberMas');
-const pedidos = document.querySelectorAll('#realizarPedido');
+// const pedidos = document.querySelectorAll('#realizarPedido');
 const ventana = ()=>{
     for (const elemento of saberMas) {
         elemento.addEventListener('click',(e)=>{

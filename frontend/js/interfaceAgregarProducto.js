@@ -114,50 +114,62 @@ export class Interfaz {
         '<span style="color:red">*Por favor seleccionar la cantidad de producto que desea ordenar</span>';
       document.querySelector("#cantidad-producto").focus();
       return false;
-    }
-    else{
-        document.querySelector("#label-pedido").style.display = 'none';
-        this.addProducto(productos);
-        Interfaz.mostrarMensaje('producto cargado satisfactoriamente','success');
+    } else {
+      document.querySelector("#label-pedido").style.display = "none";
+      this.addProducto(productos);
+      Interfaz.mostrarMensaje("producto cargado satisfactoriamente", "success");
       return true;
-
     }
-    
   }
 
   addProducto(producto) {
-    const formulario = document.querySelector('#form-pedido');
+    const formulario = document.querySelector("#form-pedido");
     const listarProductos = document.querySelector("#listar-productos");
     const datosFinales = document.querySelector("#datos-finales");
     const productosDiv = document.createElement("div");
-    const vacia = document.querySelector('#vacia');
+    const vacia = document.querySelector("#vacia");
     const agregarProductos = document.querySelector("#columnas-formulario");
-    const titulo = document.querySelector("#titulo");
+
     agregarProductos.setAttribute("class", "col-sm-12 col-md-5 col-lg-4");
-    formulario.style.width = '100%';
+    formulario.style.width = "100%";
 
     //AGREGANDO ATRIBUTOS A LAS CLASES QUE VAMOS A MOSTRAR
-    if (window.matchMedia('(max-width:768px)').matches){
-      document.querySelector('#contenedor').setAttribute('class','container');
+    if (window.matchMedia("(max-width:768px)").matches) {
+      document.querySelector("#contenedor").setAttribute("class", "container");
     }
-    listarProductos.setAttribute("class", "listar-productos col-sm-12 col-md-7 col-lg-8 d-block");
-    vacia.setAttribute('class','d-md-block col-md-5 col-lg-4');
-    datosFinales.setAttribute("class", "datos-finales col-sm-12 col-md-7 col-lg-8 d-block pt-5");
-    titulo.setAttribute("class", "titulo d-inlne");
-    // throw new Error('probando error');
-
-    // listarProductos.innerHTML =`<h4 class="titulo">Listado de los productos de su pedido</h4>`;
-
+    listarProductos.setAttribute(
+      "class",
+      "listar-productos col-sm-12 col-md-7 col-lg-8 d-block"
+    );
+    vacia.setAttribute("class", "d-md-block col-md-5 col-lg-4");
+    datosFinales.setAttribute(
+      "class",
+      "datos-finales col-sm-12 col-md-7 col-lg-8 d-block pt-5"
+    );
+    const hijos = listarProductos.children;
+    if (hijos.length===0) {
+      const titulo = document.createElement("h4");
+      const mensaje = document.createElement("div");
+      listarProductos.appendChild(titulo);
+      listarProductos.appendChild(mensaje);
+      titulo.innerText = "Listado de productos de su pedido";
+      titulo.setAttribute("class", "titulo");
+      titulo.setAttribute("id", "titulo-productos");
+      mensaje.setAttribute('id','padre-mensaje');
+      mensaje.setAttribute('class','padre-mensaje');
+    }
     productosDiv.innerHTML = `
-        <div id="productos-lista" class="card text-center mb-4">
-                                <div class="card-body">
-                                    <span class="lista-producto"><strong>Producto</strong>: ${producto.producto}</span>
-                                    <span class="lista-cantidad"><strong>Cantidad</strong>: ${producto.cantidad}</span>
-                                    <a style="text-decoration:none" class="boton-lista btn btn-danger" id="boton-lista" name="borrar" href="#listar-productos">Borrar Item</a>
-                                </div>
-                            </div>`;
+          <div id="productos-lista${
+            hijos.length - 1
+          }" class="card text-center mb-4">
+                                  <div class="card-body">
+                                      <span class="lista-producto"><strong>Producto</strong>: ${producto.producto}</span>
+                                      <span class="lista-cantidad"><strong>Cantidad</strong>: ${producto.cantidad}</span>
+                                      <a style="text-decoration:none" class="boton-lista btn btn-danger" id="boton-lista${hijos.length - 1}" name="borrar" href="#listar-productos">Borrar Item</a>
+                                  </div>
+                              </div>`;
     listarProductos.appendChild(productosDiv);
-    productosDiv.setAttribute('class','productosDiv');
+    productosDiv.setAttribute("class", "productosDiv");
     datosFinales.innerHTML = `
         <div class="contenedor-form-final" style="box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
         <h4 class="titulo">Información para entrega del pedido</h4>
@@ -193,12 +205,12 @@ export class Interfaz {
 
   limpiarFormularioInicial() {
     const select = document.querySelector("#contenido-select");
-    document.querySelector('#input-select').value = "";
+    document.querySelector("#input-select").value = "";
     document.querySelector("#form-pedido").reset();
     select.innerHTML = `<h4 class="titulo-select" id="titulo-select">Selecciona el producto</h4>`;
   }
 
-  limpiarFormularioEnvio(){
+  limpiarFormularioEnvio() {
     document.querySelector("#informacion").reset();
   }
 
@@ -209,39 +221,41 @@ export class Interfaz {
   }
 
   static mostrarMensaje(mensaje, estilo) {
-    const padre = document.querySelector('#padre-mensaje');
-    const divMensaje = document.createElement('div');
+    const padre = document.querySelector("#padre-mensaje");
+    const divMensaje = document.createElement("div");
     padre.className = `d-block`;
     divMensaje.className = `mensaje alert alert-${estilo}`;
     divMensaje.appendChild(document.createTextNode(mensaje));
     //MOSTRAR MENSAJE EN EL DOM
     // const cabecera = document.querySelector('.cabecera');
     padre.appendChild(divMensaje);
-    if (window.matchMedia('(min-width:1921px)').matches){
-      divMensaje.style.fontSize = '1.7rem';
+    if (window.matchMedia("(min-width:1921px)").matches) {
+      divMensaje.style.fontSize = "1.7rem";
     }
-    if (window.matchMedia('(min-width:1441px) and (max-width:1920px)').matches){
-      divMensaje.style.fontSize = '1.25rem';
+    if (
+      window.matchMedia("(min-width:1441px) and (max-width:1920px)").matches
+    ) {
+      divMensaje.style.fontSize = "1.25rem";
     }
-    if (window.matchMedia('(max-width:1024px)').matches){
-      divMensaje.style.fontSize = '1rem';
+    if (window.matchMedia("(max-width:1024px)").matches) {
+      divMensaje.style.fontSize = "1rem";
     }
-    if (window.matchMedia('(max-width:992px)').matches){
-      divMensaje.style.fontSize = '1rem';
+    if (window.matchMedia("(max-width:992px)").matches) {
+      divMensaje.style.fontSize = "1rem";
     }
-    if (window.matchMedia('(max-width:768px)').matches){
-      divMensaje.style.fontSize = '0.875rem';
+    if (window.matchMedia("(max-width:768px)").matches) {
+      divMensaje.style.fontSize = "0.875rem";
     }
-    if (window.matchMedia('(max-width:576px)').matches){
-      divMensaje.style.fontSize = '0.875rem';
+    if (window.matchMedia("(max-width:576px)").matches) {
+      divMensaje.style.fontSize = "0.875rem";
     }
-    if (window.matchMedia('(max-width:425px)').matches){
-      divMensaje.style.fontSize = '0.8125rem';
+    if (window.matchMedia("(max-width:425px)").matches) {
+      divMensaje.style.fontSize = "0.8125rem";
     }
-    if (window.matchMedia('(max-width:320px)').matches){
-      divMensaje.style.fontSize = '0.75rem';
+    if (window.matchMedia("(max-width:320px)").matches) {
+      divMensaje.style.fontSize = "0.75rem";
     }
-    
+
     // pedido.insertBefore(divMensaje, contenedorPedido);
     //PARA REMOVER EL MENSAJE DESPUES DE 3 SEGUNDOS USAMOS UN SETTIMEOUT
     setTimeout(() => {
