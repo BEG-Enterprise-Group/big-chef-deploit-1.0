@@ -43,6 +43,12 @@ const modalFunction = () => {
           vacia.setAttribute('class','vacia d-none');
           listarProductos.setAttribute('class','listar-productos d-none');
           datosFinales.setAttribute('class','datos-finales d-none');
+          if (window.matchMedia("(max-width:1024px)").matches) {
+            formulario.style.width = '50%';
+          }
+          if (window.matchMedia("(max-width:768px)").matches) {
+            formulario.style.width = '100%';
+          }
         });
       }
     }
