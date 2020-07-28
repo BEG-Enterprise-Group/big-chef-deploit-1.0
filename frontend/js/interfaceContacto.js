@@ -81,8 +81,8 @@ export class Interfaz {
     if (!valor == "") {
       switch (entrada.id) {
         case "telefonoContacto":
-          expresionRegular = /^\-[0-9]{1,20}$|^[0-9]{1,20}$/;
-          if (!expresionRegular.test(valor) || valor.length != 10) {
+          expresionRegular = /^\d{7,14}$/;
+          if (!expresionRegular.test(valor)) {
             document.querySelector("#div-" + entrada.id + " .error").innerHTML =
               '<span style="color:red">*ERROR al ingresar su numero telefónico: ' +
               entrada.placeholder +
@@ -134,10 +134,10 @@ export class Interfaz {
       }
       if (!this.validarTelefono || !this.validarCorreo) {
         if (document.querySelector("#telefonoContacto").value == "") {
-          document.querySelector("#label-enviar").innerHTML =
-            '<span class="mensaje" style="color:red">*Su numero de contacto es muy importante para nosotros, por favor diligéncielo</span>';
-          document.querySelector("#telefonoContacto").focus();
-          return false;
+          // document.querySelector("#label-enviar").innerHTML =
+          //   '<span class="mensaje" style="color:red">*Su numero de contacto es muy importante para nosotros, por favor diligéncielo</span>';
+          // document.querySelector("#telefonoContacto").focus();
+          // return false;
         } else if (document.querySelector("#correoContacto").value == "") {
           document.querySelector("#label-enviar").innerHTML =
             '<span class="mensaje" style="color:red">*El correo de contacto de su empresa debe estar incluido en el pedido, por favor diligéncielo</span>';

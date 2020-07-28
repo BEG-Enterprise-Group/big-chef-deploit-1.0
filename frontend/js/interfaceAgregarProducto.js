@@ -1,3 +1,8 @@
+let arregloProductos = [];
+let contador = 1;
+let hijos = 0;
+
+import {enviarCorreo} from './enviarCorreoPedido';
 export class Interfaz {
   constructor() {
     this.validarItem = false;
@@ -115,6 +120,11 @@ export class Interfaz {
       document.querySelector("#cantidad-producto").focus();
       return false;
     } else {
+      let isVisible = $("#informacion").is(":visible");
+      if (!isVisible){
+        arregloProductos = [];
+        contador=1;
+      }
       document.querySelector("#label-pedido").style.display = "none";
       this.addProducto(productos);
       Interfaz.mostrarMensaje("producto cargado satisfactoriamente", "success");
@@ -126,17 +136,10 @@ export class Interfaz {
     const formulario = document.querySelector("#form-pedido");
     const listarProductos = document.querySelector("#listar-productos");
     const datosFinales = document.querySelector("#datos-finales");
-    const productosDiv = document.createElement("div");
     const vacia = document.querySelector("#vacia");
     const agregarProductos = document.querySelector("#columnas-formulario");
-
     agregarProductos.setAttribute("class", "col-sm-12 col-md-5 col-lg-4");
     formulario.style.width = "100%";
-
-    //AGREGANDO ATRIBUTOS A LAS CLASES QUE VAMOS A MOSTRAR
-    if (window.matchMedia("(max-width:768px)").matches) {
-      document.querySelector("#contenedor").setAttribute("class", "container");
-    }
     listarProductos.setAttribute(
       "class",
       "listar-productos col-sm-12 col-md-7 col-lg-8 d-block"
@@ -146,8 +149,8 @@ export class Interfaz {
       "class",
       "datos-finales col-sm-12 col-md-7 col-lg-8 d-block pt-5"
     );
-    const hijos = listarProductos.children;
-    if (hijos.length===0) {
+    hijos = listarProductos.children;
+    if (hijos.length === 0) {
       const titulo = document.createElement("h4");
       const mensaje = document.createElement("div");
       listarProductos.appendChild(titulo);
@@ -155,23 +158,76 @@ export class Interfaz {
       titulo.innerText = "Listado de productos de su pedido";
       titulo.setAttribute("class", "titulo");
       titulo.setAttribute("id", "titulo-productos");
-      mensaje.setAttribute('id','padre-mensaje');
-      mensaje.setAttribute('class','padre-mensaje');
+      mensaje.setAttribute("id", "padre-mensaje");
+      mensaje.setAttribute("class", "padre-mensaje");
     }
-    productosDiv.innerHTML = `
-          <div id="productos-lista${
-            hijos.length - 1
-          }" class="card text-center mb-4">
-                                  <div class="card-body">
-                                      <span class="lista-producto"><strong>Producto</strong>: ${producto.producto}</span>
-                                      <span class="lista-cantidad"><strong>Cantidad</strong>: ${producto.cantidad}</span>
-                                      <a style="text-decoration:none" class="boton-lista btn btn-danger" id="boton-lista${hijos.length - 1}" name="borrar" href="#listar-productos">Borrar Item</a>
-                                  </div>
-                              </div>`;
-    listarProductos.appendChild(productosDiv);
-    productosDiv.setAttribute("class", "productosDiv");
-    datosFinales.innerHTML = `
-        <div class="contenedor-form-final" style="box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
+    const resultado = arregloProductos.filter((productoItem) => {
+      if (productoItem.producto === producto.producto) {
+        productoItem.cantidad =
+          parseInt(productoItem.cantidad) + parseInt(producto.cantidad);
+        const añadir = document.querySelectorAll(".productosDiv");
+        for (const iterator of añadir) {
+          if (
+            iterator.childNodes[0].childNodes[0].childNodes[0].value ===
+            producto.producto
+          ) {
+            iterator.childNodes[0].childNodes[0].childNodes[1].innerText =
+              parseInt(
+                iterator.childNodes[0].childNodes[0].childNodes[1].value
+              ) + parseInt(producto.cantidad);
+            iterator.childNodes[0].childNodes[0].childNodes[1].value =
+              iterator.childNodes[0].childNodes[0].childNodes[1].innerText;
+          }
+        }
+      }
+      return productoItem.producto === producto.producto;
+    });
+    if (resultado.length === 0) {
+      listarProductos.style.display = 'block';
+      const productosDiv = document.createElement("div");
+      productosDiv.setAttribute("class", "productosDiv");
+      productosDiv.setAttribute('id',`productosDiv${contador}`);
+      productosDiv.setAttribute("elemento", contador);
+      listarProductos.appendChild(productosDiv);
+      arregloProductos.push({
+        item: contador,
+        producto: producto.producto,
+        cantidad: parseInt(producto.cantidad),
+      });
+      const productoLista = document.createElement("div");
+      const cardBody = document.createElement("div");
+      const listaProducto = document.createElement("div");
+      const cantidadPedido = document.createElement("div");
+      const botonLista = document.createElement("a");
+      productoLista.setAttribute("id", `producto-lista${contador}`);
+      productoLista.setAttribute("class", "card text-center mb-4");
+      cardBody.setAttribute("class", "card-body");
+      listaProducto.setAttribute("id", `item-pedido${contador}`);
+      listaProducto.setAttribute("class", "lista-producto");
+      listaProducto.style.display = "inline";
+      listaProducto.style.paddingRight = '15px';
+      cantidadPedido.setAttribute("id", `cantidadPedido${contador}`);
+      cantidadPedido.setAttribute("class", "lista-cantidad");
+      cantidadPedido.style.display = "inline";
+      cantidadPedido.style.paddingRight = '15px';
+      botonLista.setAttribute("id", `boton-lista${contador}`);
+      botonLista.setAttribute("class", "boton-lista btn btn-danger");
+      botonLista.style.textDecoration = "none";
+      botonLista.setAttribute("name", "borrar");
+      botonLista.setAttribute("href", "#listar-productos");
+      listaProducto.innerHTML = producto.producto;
+      listaProducto.value = producto.producto;
+      cantidadPedido.innerHTML = producto.cantidad;
+      cantidadPedido.value = producto.cantidad;
+      botonLista.innerText = "Borrar Item";
+      cardBody.appendChild(listaProducto);
+      cardBody.appendChild(cantidadPedido);
+      cardBody.appendChild(botonLista);
+      productoLista.appendChild(cardBody);
+      productosDiv.appendChild(productoLista);
+      contador = contador + 1;
+    }
+    datosFinales.innerHTML = `<div class="contenedor-form-final" style="box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
         <h4 class="titulo">Información para entrega del pedido</h4>
         <form id="informacion" class="py-3">
        
@@ -215,8 +271,22 @@ export class Interfaz {
   }
 
   eliminarProducto(elemento) {
+    arregloProductos.splice(
+      elemento.parentElement.parentElement.parentElement.getAttribute(
+        "elemento"
+      ) - 1,
+      1
+    );
     if (elemento.name === "borrar") {
+      contador = contador - 1;
       elemento.parentElement.parentElement.parentElement.remove();
+      let nodos = document.querySelectorAll(
+        "#listar-productos > .productosDiv"
+      );
+      for (let i = 0; i <= nodos.length - 1; i++) {
+        console.log("nodos", nodos);
+        nodos[i].setAttribute("elemento", `${i + 1}`);
+      }
     }
   }
 
@@ -287,8 +357,9 @@ export class Interfaz {
     if (!valor == "") {
       switch (entrada.id) {
         case "telefono":
-          expresionRegular = /^\-[0-9]{1,20}$|^[0-9]{1,20}$/;
-          if (!expresionRegular.test(valor) || valor.length != 10) {
+          // expresionRegular = /^\-[0-9]{7,14}$|^[0-9]{7,14}$/;
+          expresionRegular = /^\d{7,14}$/;
+          if (!expresionRegular.test(valor)) {
             document.querySelector("#div-" + entrada.id + " .error").innerHTML =
               '<span style="color:red">*ERROR al ingresar su numero telefónico: ' +
               entrada.placeholder +
@@ -393,15 +464,16 @@ export class Interfaz {
       document.querySelector("#direccion").focus();
       return false;
     } else {
-      document.querySelector("#label-pedidos").innerHTML =
-        '<span class="mensaje" style="color:green">Su formulario ha sido validado con éxito</span>';
-      this.enviarCorreo();
+      // document.querySelector("#label-pedidos").innerHTML =
+      //   '<span class="mensaje" style="color:green">Su formulario ha sido validado con éxito</span>';
+      this.enviarCorreoPedido();
       return true;
     }
   }
 
-  enviarCorreo() {
-    this.limpiarFormularioEnvio();
-    alert("Envio de Correos en construcción");
+  enviarCorreoPedido() {
+    enviarCorreo(arregloProductos);
+    // this.limpiarFormularioEnvio();
+    // alert("Envio de Correos en construcción");
   }
 }

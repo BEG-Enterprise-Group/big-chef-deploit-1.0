@@ -12,7 +12,6 @@ document.querySelector('#form-pedido').addEventListener('submit',(e)=>{
         e.preventDefault();
         const select = document.querySelector('#input-select');
         const cantidadPedido = document.querySelector('#cantidad-producto');
-        // const formulario = document.querySelector('#form-pedido');
         document.querySelector('#label-pedido').style.display = 'block';
         const producto = new Producto(select.value,cantidadPedido.value);
         const añadirProducto = new Interfaz();

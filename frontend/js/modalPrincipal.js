@@ -26,16 +26,16 @@ const modalFunction = () => {
           $(window).scrollTop($("#pedido").offset().top);
         });
         botonNo.addEventListener("click", () => {
-            const formulario = document.querySelector('#form-pedido');
-            const columnasFormulario = document.querySelector("#columnas-formulario");
-            const vacia = document.querySelector('#vacia');
-            const datosFinales = document.querySelector('#datos-finales');
-            const listarProductos = document.querySelector('#listar-productos');
-            isVisible = false;
-            function removeAllChilds(a) {
+          const formulario = document.querySelector('#form-pedido');
+          const columnasFormulario = document.querySelector("#columnas-formulario");
+          const vacia = document.querySelector('#vacia');
+          const datosFinales = document.querySelector('#datos-finales');
+          const listarProductos = document.querySelector('#listar-productos');
+          isVisible = false;
+          function removeAllChilds(a) {
             const elemento = document.getElementById(a);
             while (elemento.hasChildNodes()) elemento.removeChild(elemento.firstChild);
-            }
+          }
           removeAllChilds('datos-finales');
           removeAllChilds('listar-productos');
           formulario.style.width = '40%';

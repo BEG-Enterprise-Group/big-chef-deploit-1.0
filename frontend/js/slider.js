@@ -22,7 +22,6 @@ import 'slick-carousel';
 
     });
    $(window).resize(function(){
-    //  $('.sliders').slick.refresh();
      $('.sliders').slick('setPosition');
    });
  

@@ -23,7 +23,14 @@ AOS.init({
 AOS.init();
 
 
+if (window.matchMedia("(max-width:768px)").matches) {
+  document.querySelector("#contenedor").setAttribute("class", "container");
+} 
+
 const contenedor = document.querySelector("#contenedorNosotros");
 if (window.matchMedia("(min-width:1441px)").matches) {
   contenedor.setAttribute("class", "container-fluid");
 }
+
+
+
