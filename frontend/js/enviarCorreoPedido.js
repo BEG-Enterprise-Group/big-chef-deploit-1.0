@@ -72,6 +72,7 @@ export const enviarCorreo = (productos) => {
             if (window.matchMedia("(max-width:768px)").matches) {
               formulario.style.width = "100%";
             }
+            $(window).scrollTop($("#pedido").offset().top);
           }, 3000);
         })
         .catch((error) => {
