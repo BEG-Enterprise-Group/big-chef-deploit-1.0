@@ -4,8 +4,8 @@ const modalFunction = () => {
     const scroll = window.pageYOffset;
     if (isVisible === true) {
       if (
-        scroll < document.querySelector("#pedido").offsetTop ||
-        scroll > document.querySelector("#footer").offsetTop
+        scroll < document.querySelector("#pedido").offsetTop-250 ||
+        scroll > document.querySelector("#footer").offsetTop+100
       ) {
         const tituloModal = document.querySelector("#titulo-principal");
         const parrafoModal = document.querySelector("#parrafo-principal");
