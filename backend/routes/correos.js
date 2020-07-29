@@ -221,6 +221,7 @@ router.post("/respuestaPedido", async (req, res) => {
         transporter.close();
         setTimeout(()=>{
           const filePath = path.join(__dirname,'../',`/pdf/pedido${codigo}.pdf`);
+          console.log('File Borrado',filePath);
           fs.unlinkSync(filePath);
         },3000);
       }
