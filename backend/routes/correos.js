@@ -1,7 +1,9 @@
 const router = require("express").Router();
 const nodemailer = require("nodemailer");
 const {crearPedido} = require('../pdf/crearPedido');
+const fs = require('fs');
 const path = require('path');
+let codigo = null;
 
 router.get("/", (req, res) => {
   res.json({ message: "Estas conectado a la API. Recurso: correos" });
@@ -104,7 +106,19 @@ router.post("/pedidos", async (req, res) => {
   const numero = (a,b)=>{
     return Math.round(Math.random()*(b-a)+parseInt(a));
   }
-  let contador=1000;
+  const formatDate = (date) => {
+    const day = date.getDate();
+    const month = date.getMonth()+1;
+    const year = date.getFullYear();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const seconds = date.getSeconds();
+  
+    return day + "" + month + "" + year + "" + hours + "" + minutes + "" + seconds;
+  }
+  codigo= formatDate(new Date());
+  console.log('codigo',codigo);
+  
 
   const invoice = {
     direccion: {
@@ -118,7 +132,7 @@ router.post("/pedidos", async (req, res) => {
     invoice_nr: numero(a,b)
     
   }
-  crearPedido(invoice,path.join(__dirname,'../',`pdf/pedido.pdf`));
+  crearPedido(invoice,path.join(__dirname,'../',`/pdf/pedido${codigo}.pdf`));
   contentHTML = `<h1>Correo enviado a traves de nuestro portal web</h1>
                 <p style="font-size:16px;">Este correo es generado por nuestra plataforma para la captura y recepción de nuevos pedidos a través de nuestra seccion pedidos </p>
                 <p style="font-size:16px;"><b>Mensaje: </b>Hemos recibido un nuevo pedido desde el cliente <b>${nombrePedido}</b></p>
@@ -153,8 +167,7 @@ router.post("/pedidos", async (req, res) => {
     html: contentHTML,
     attachments: [
       {
-        filename: 'pedido.pdf',
-        path: 'backend/pdf/pedido.pdf'
+        path: `backend/pdf/pedido${codigo}.pdf`
       }
     ]
   };
@@ -202,8 +215,7 @@ router.post("/respuestaPedido", async (req, res) => {
           `,
     attachments: [
       {
-        filename: 'pedido.pdf',
-        path: 'backend/pdf/pedido.pdf'
+        path: `backend/pdf/pedido${codigo}.pdf`
       }
     ]
   };
@@ -215,6 +227,8 @@ router.post("/respuestaPedido", async (req, res) => {
       } else {
         console.log("Mensaje Enviado: %s", info.messageId);
         res.status(200).jsonp(req.body);
+        const filePath = path.join(__dirname,'../',`/pdf/pedido${codigo}.pdf`);
+        fs.unlinkSync(filePath);
       }
     } catch (err) {
       console.log(err);
