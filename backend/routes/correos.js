@@ -228,8 +228,10 @@ router.post("/respuestaPedido", async (req, res) => {
       } else {
         console.log("Mensaje Enviado: %s", info.messageId);
         res.status(200).jsonp(req.body);
-        const filePath = path.join(__dirname,'../',`/pdf/pedido${codigo}.pdf`);
-        fs.unlinkSync(filePath);
+        setTimeout(()=>{
+          const filePath = path.join(__dirname,'../',`/pdf/pedido${codigo}.pdf`);
+          fs.unlinkSync(filePath);
+        },3000);
       }
     } catch (err) {
       console.log(err);
