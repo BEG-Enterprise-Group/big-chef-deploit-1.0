@@ -217,7 +217,7 @@ export class Interfaz {
       botonLista.setAttribute("href", "#listar-productos");
       listaProducto.innerHTML = producto.producto;
       listaProducto.value = producto.producto;
-      cantidadPedido.innerHTML = producto.cantidad;
+      cantidadPedido.innerHTML = parseInt(producto.cantidad);
       cantidadPedido.value = producto.cantidad;
       botonLista.innerText = "Borrar Item";
       cardBody.appendChild(listaProducto);
