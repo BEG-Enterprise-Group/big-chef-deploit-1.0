@@ -9,13 +9,19 @@ export const enviarCorreo = (productos) => {
   const direccionPedido = document.querySelector("#direccion").value;
   const telefonoPedido = document.querySelector("#telefono").value;
   const pedido = productos;
-
-  // console.log('empresa',empresa);
-  // console.log('nombre',nombre);
-  // console.log('correo',correo);
-  // console.log('direccion',direccion);
-  // console.log('telefono',telefono);
-  // console.log('pedido',pedido);
+  const formatDate = (date) => {
+    const day = date.getDate();
+    const month = date.getMonth()+1;
+    const year = date.getFullYear();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const seconds = date.getSeconds();
+    const milliseconds = date.getMilliseconds();
+  
+    return day + "" + month + "" + year + "" + hours + "" + minutes + "" + seconds + "" + milliseconds;
+  }
+  
+  const codigo= formatDate(new Date());
 
   const datos = {
     empresa,
@@ -24,6 +30,7 @@ export const enviarCorreo = (productos) => {
     direccionPedido,
     telefonoPedido,
     pedido,
+    codigo
   };
   console.log("informacion para el pedido", datos);
 

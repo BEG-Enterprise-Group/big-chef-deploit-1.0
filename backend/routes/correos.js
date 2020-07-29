@@ -3,7 +3,6 @@ const nodemailer = require("nodemailer");
 const {crearPedido} = require('../pdf/crearPedido');
 const fs = require('fs');
 const path = require('path');
-let codigo = null;
 
 router.get("/", (req, res) => {
   res.json({ message: "Estas conectado a la API. Recurso: correos" });
@@ -49,6 +48,7 @@ router.post("/contactenos", async (req, res) => {
       } else {
         console.log("Mensaje Enviado: %s", info.messageId);
         res.status(200).jsonp(req.body);
+        transporter.close();
       }
     } catch (err) {
       console.log(err);
@@ -92,6 +92,7 @@ router.post("/respuesta", async (req, res) => {
       } else {
         console.log("Mensaje Enviado: %s", info.messageId);
         res.status(200).jsonp(req.body);
+        transporter.close();
       }
     } catch (err) {
       console.log(err);
@@ -100,25 +101,13 @@ router.post("/respuesta", async (req, res) => {
 });
 
 router.post("/pedidos", async (req, res) => {
-  const { empresa,nombrePedido,correoPedido,direccionPedido,telefonoPedido,pedido } = req.body;
+  const { empresa,nombrePedido,correoPedido,direccionPedido,telefonoPedido,pedido,codigo } = req.body;
   const a = 100;
   const b = 10000;
   const numero = (a,b)=>{
     return Math.round(Math.random()*(b-a)+parseInt(a));
   }
-  const formatDate = (date) => {
-    const day = date.getDate();
-    const month = date.getMonth()+1;
-    const year = date.getFullYear();
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-    const seconds = date.getSeconds();
-    const milliseconds = date.getMilliseconds();
   
-    return day + "" + month + "" + year + "" + hours + "" + minutes + "" + seconds + "" + milliseconds;
-  }
-  codigo= formatDate(new Date());
-  console.log('codigo',codigo);
   
 
   const invoice = {
@@ -128,8 +117,8 @@ router.post("/pedidos", async (req, res) => {
       direccionPedido,
     },
     items : pedido,
-    subtotal: 8000,
-    paid: 0,
+    // subtotal: 8000,
+    // paid: 0,
     invoice_nr: numero(a,b)
     
   }
@@ -180,6 +169,7 @@ router.post("/pedidos", async (req, res) => {
       } else {
         console.log("Mensaje Enviado: %s", info.messageId);
         res.status(200).jsonp(req.body);
+        transporter.close();
       }
     } catch (err) {
       console.log(err);
@@ -188,7 +178,7 @@ router.post("/pedidos", async (req, res) => {
 });
 
 router.post("/respuestaPedido", async (req, res) => {
-  const { empresa,nombrePedido,correoPedido,direccionPedido,telefonoPedido,pedido } = req.body;
+  const { empresa,nombrePedido,correoPedido,direccionPedido,telefonoPedido,pedido,codigo } = req.body;
   let transporter = nodemailer.createTransport({
     host: process.env.MAIL_HOST,
     port: process.env.MAIL_PORT,
@@ -228,6 +218,7 @@ router.post("/respuestaPedido", async (req, res) => {
       } else {
         console.log("Mensaje Enviado: %s", info.messageId);
         res.status(200).jsonp(req.body);
+        transporter.close();
         setTimeout(()=>{
           const filePath = path.join(__dirname,'../',`/pdf/pedido${codigo}.pdf`);
           fs.unlinkSync(filePath);
