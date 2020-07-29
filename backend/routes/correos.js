@@ -113,8 +113,9 @@ router.post("/pedidos", async (req, res) => {
     const hours = date.getHours();
     const minutes = date.getMinutes();
     const seconds = date.getSeconds();
+    const milliseconds = date.getMilliseconds();
   
-    return day + "" + month + "" + year + "" + hours + "" + minutes + "" + seconds;
+    return day + "" + month + "" + year + "" + hours + "" + minutes + "" + seconds + "" + milliseconds;
   }
   codigo= formatDate(new Date());
   console.log('codigo',codigo);

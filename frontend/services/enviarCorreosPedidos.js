@@ -3,6 +3,7 @@
 export class EnvioCorreosPedidos{
     constructor(){
         this.URI = "https://big-chef.herokuapp.com/api/correos/pedidos";
+        // this.URI = "http://localhost:3000/api/correos/pedidos";
     }
 
     async postEmail(correo){
