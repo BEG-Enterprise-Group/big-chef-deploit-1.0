@@ -1,6 +1,6 @@
 export class RespuestaPedidos{
     constructor(){
-        this.URI = 'https://big-chef.herokuapp.com/api/correos/pedidos';
+        this.URI = 'https://big-chef.herokuapp.com/api/correos/respuestaPedido';
     }
 
     async postEmail(correo){
