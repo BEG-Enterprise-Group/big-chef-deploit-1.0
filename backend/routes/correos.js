@@ -35,8 +35,8 @@ router.post("/contactenos", async(req, res) => {
     });
 
     let opciones = {
-        from: `SECCION CONTACTENOS <test@smartfleetsolution.com>`,
-        to: "test@smartfleetsolution.com",
+        from: `${nombre} <${correo}`,
+        to: process.env.MAIL_CONTACTO,
         subject: `Correo enviado desde formulario de contactos de districaribesas.com por ${nombre} `,
         html: contentHTML,
     };
@@ -73,16 +73,24 @@ router.post("/respuesta", async(req, res) => {
     });
 
     let opciones = {
-        from: `Districaribe SAS <noreply@smartfleetsolution.com>`,
-        to: `${correo}`,
-        subject: `Gracias por contactarnos.....`,
-        html: `
-              <p style="font-size: 16px">Hola <b>${nombre} te saluda la familia Districaribe SAS.</b></p>
-              <br>
-              <p style="font-size: 16px">Tu mensaje es muy importante para nosotros. Si necesitamos ponernos en contacto contigo lo haremos lo mas pronto posible.</p>
-              <br>
-              <p style="font-size: 16px">Gracias por elegir nuestros productos <b>BIG CHEF</b> y muchos exitos.</p>
-          `,
+        from: `Districaribe SAS <${process.env.MAIL_USER_RESP}>`,
+        to: `
+                    $ { correo }
+                    `,
+        subject: `
+                    Gracias por contactarnos.....
+                    `,
+        html: ` <
+                    p style = "font-size: 16px" > Hola < b > $ { nombre }
+                    te saluda la familia Districaribe SAS. < /b></p >
+                    <
+                    br >
+                    <
+                    p style = "font-size: 16px" > Tu mensaje es muy importante para nosotros.Si necesitamos ponernos en contacto contigo lo haremos lo mas pronto posible. < /p> <
+                    br >
+                    <
+                    p style = "font-size: 16px" > Gracias por elegir nuestros productos < b > BIG CHEF < /b> y muchos exitos.</p >
+                    `,
     };
 
     await transporter.sendMail(opciones, (error, info) => {
@@ -122,19 +130,25 @@ router.post("/pedidos", async(req, res) => {
         invoice_nr: numero(a, b)
 
     }
-    crearPedido(invoice, path.join(__dirname, '../', `/pdf/pedido${codigo}.pdf`));
-    contentHTML = `<h1>Correo enviado a traves de nuestro portal web</h1>
-                <p style="font-size:16px;">Este correo es generado por nuestra plataforma para la captura y recepción de nuevos pedidos a través de nuestra seccion pedidos </p>
-                <p style="font-size:16px;"><b>Mensaje: </b>Hemos recibido un nuevo pedido desde el cliente <b>${nombrePedido}</b></p>
-                <p style="font-size:16px;">La información de contacto del cliente esta detallada a continuación</p>
-                <ul style="list-style:none;">
-                    <li style="font-size:18px;">Empresa que nos envia el pedido: <b>${empresa}</b></li>
-                    <li style="font-size:18px;">Nombre del Cliente: <b>${nombrePedido}</b></li>
-                    <li style="font-size:18px;">Correo del Cliente: <b>${correoPedido}</b></li>
-                    <li style="font-size:18px;">Dirección de entrega del pedido: <b>${direccionPedido}</b></li>
-                    <li style="font-size:18px;">Telefono del Cliente: <b>${telefonoPedido}</b></li>
-                </ul>
-                `;
+    crearPedido(invoice, path.join(__dirname, '../', ` / pdf / pedido$ { codigo }.pdf `));
+    contentHTML = ` < h1 > Correo enviado a traves de nuestro portal web < /h1> <
+                    p style = "font-size:16px;" > Este correo es generado por nuestra plataforma para la captura y recepción de nuevos pedidos a través de nuestra seccion pedidos < /p> <
+                    p style = "font-size:16px;" > < b > Mensaje: < /b>Hemos recibido un nuevo pedido desde el cliente <b>${nombrePedido}</b > < /p> <
+                        p style = "font-size:16px;" > La información de contacto del cliente esta detallada a continuación < /p> <
+                        ul style = "list-style:none;" >
+                        <
+                        li style = "font-size:18px;" > Empresa que nos envia el pedido: < b > $ { empresa } < /b></li >
+                        <
+                        li style = "font-size:18px;" > Nombre del Cliente: < b > $ { nombrePedido } < /b></li >
+                        <
+                        li style = "font-size:18px;" > Correo del Cliente: < b > $ { correoPedido } < /b></li >
+                        <
+                        li style = "font-size:18px;" > Dirección de entrega del pedido: < b > $ { direccionPedido } < /b></li >
+                        <
+                        li style = "font-size:18px;" > Telefono del Cliente: < b > $ { telefonoPedido } < /b></li >
+                        <
+                        /ul>
+                    `;
 
     let transporter = nodemailer.createTransport({
         host: process.env.MAIL_HOST,
@@ -151,12 +165,16 @@ router.post("/pedidos", async(req, res) => {
     });
 
     let opciones = {
-        from: `PEDIDOS <test@smartfleetsolution.com>`,
+        from: `
+                    PEDIDOS < test @smartfleetsolution.com > `,
         to: "test@smartfleetsolution.com",
-        subject: `Correo enviado desde formulario de pedidos de districaribesas.com por ${empresa} `,
+        subject: `
+                    Correo enviado desde formulario de pedidos de districaribesas.com por $ { empresa }
+                    `,
         html: contentHTML,
         attachments: [{
-            path: `backend/pdf/pedido${codigo}.pdf`
+            path: `
+                    backend / pdf / pedido$ { codigo }.pdf `
         }]
     };
 
@@ -192,18 +210,29 @@ router.post("/respuestaPedido", async(req, res) => {
     });
 
     let opciones = {
-        from: `Districaribe SAS <noreply@smartfleetsolution.com>`,
-        to: `${correoPedido}`,
-        subject: `Gracias por elegir nuestros productos.....`,
-        html: `
-              <p style="font-size: 16px">Hola <b>${nombrePedido} te saluda la familia Districaribe SAS.</b></p>
-              <br>
-              <p style="font-size: 16px">El pedido para <b>${empresa}</b> es muy importante para nosotros. Nos ponernos en contacto contigo para confirmar y ultimar detalles en tu orden.</p>
-              <br>
-              <p style="font-size: 16px">Gracias por elegir nuestros productos <b>BIG CHEF</b> y muchos exitos.</p>
-          `,
+        from: `
+                    Districaribe SAS < noreply @smartfleetsolution.com > `,
+        to: `
+                    $ { correoPedido }
+                    `,
+        subject: `
+                    Gracias por elegir nuestros productos.....
+                    `,
+        html: ` <
+                    p style = "font-size: 16px" > Hola < b > $ { nombrePedido }
+                    te saluda la familia Districaribe SAS. < /b></p >
+                    <
+                    br >
+                    <
+                    p style = "font-size: 16px" > El pedido para < b > $ { empresa } < /b> es muy importante para nosotros. Nos ponernos en contacto contigo para confirmar y ultimar detalles en tu orden.</p >
+                    <
+                    br >
+                    <
+                    p style = "font-size: 16px" > Gracias por elegir nuestros productos < b > BIG CHEF < /b> y muchos exitos.</p >
+                    `,
         attachments: [{
-            path: `backend/pdf/pedido${codigo}.pdf`
+            path: `
+                    backend / pdf / pedido$ { codigo }.pdf `
         }]
     };
 
@@ -216,7 +245,7 @@ router.post("/respuestaPedido", async(req, res) => {
                 res.status(200).jsonp(req.body);
                 transporter.close();
                 setTimeout(() => {
-                    const filePath = path.join(__dirname, '../', `/pdf/pedido${codigo}.pdf`);
+                    const filePath = path.join(__dirname, '../', ` / pdf / pedido$ { codigo }.pdf `);
                     console.log('File Borrado', filePath);
                     fs.unlinkSync(filePath);
                 }, 3000);
