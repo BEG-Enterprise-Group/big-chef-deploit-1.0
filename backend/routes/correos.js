@@ -26,7 +26,7 @@ router.post("/contactenos", async(req, res) => {
         port: config.MAIL_PORT,
         secure: false,
         auth: {
-            user: config.MAIL_CORREOS,
+            user: config.MAIL_CONTACTO,
             pass: config.MAIL_PASSWORD,
         },
 
@@ -64,7 +64,7 @@ router.post("/respuesta", async(req, res) => {
         port: config.MAIL_PORT,
         secure: false,
         auth: {
-            user: config.MAIL_CORREOS,
+            user: config.MAIL_USER_RESP,
             pass: config.MAIL_PASSWORD,
         },
 
@@ -139,7 +139,7 @@ router.post("/pedidos", async(req, res) => {
         port: config.MAIL_PORT,
         secure: false,
         auth: {
-            user: config.MAIL_CORREOS,
+            user: config.MAIL_PEDIDOS,
             pass: config.MAIL_PASSWORD,
         },
 
@@ -180,7 +180,7 @@ router.post("/respuestaPedido", async(req, res) => {
         port: config.MAIL_PORT,
         secure: false,
         auth: {
-            user: config.MAIL_CORREOS,
+            user: config.MAIL_USER_RESP,
             pass: config.MAIL_PASSWORD,
         },
 
