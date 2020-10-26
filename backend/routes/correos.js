@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const nodemailer = require("nodemailer");
+const config = require('../config');
 const { crearPedido } = require('../pdf/crearPedido');
 const fs = require('fs');
 const path = require('path');
@@ -21,12 +22,12 @@ router.post("/contactenos", async(req, res) => {
                 <p style="font-size:16px;"><b>Mensaje:</b> ${mensaje}</p>
             `;
     let transporter = nodemailer.createTransport({
-        host: process.env.MAIL_HOST,
-        port: process.env.MAIL_PORT,
-        secure: true,
+        host: config.MAIL_HOST,
+        port: config.MAIL_PORT,
+        secure: false,
         auth: {
-            user: process.env.MAIL_CONTACTO,
-            pass: process.env.MAIL_PASSWORD,
+            user: config.MAIL_CONTACTO,
+            pass: config.MAIL_PASSWORD,
         },
 
         tls: {
@@ -35,8 +36,8 @@ router.post("/contactenos", async(req, res) => {
     });
 
     let opciones = {
-        from: `${nombre} <${correo}`,
-        to: process.env.MAIL_CONTACTO,
+        from: `${nombre} <${config.MAIL_CONTACTO}>`,
+        to: config.MAIL_CONTACTO,
         subject: `Correo enviado desde formulario de contactos de districaribesas.com por ${nombre} `,
         html: contentHTML,
     };
@@ -59,12 +60,12 @@ router.post("/contactenos", async(req, res) => {
 router.post("/respuesta", async(req, res) => {
     const { nombre, correo } = req.body;
     let transporter = nodemailer.createTransport({
-        host: process.env.MAIL_HOST,
-        port: process.env.MAIL_PORT,
-        secure: true,
+        host: config.MAIL_HOST,
+        port: config.MAIL_PORT,
+        secure: false,
         auth: {
-            user: process.env.MAIL_USER_RESP,
-            pass: process.env.MAIL_PASSWORD,
+            user: config.MAIL_USER_RESP,
+            pass: config.MAIL_PASSWORD,
         },
 
         tls: {
@@ -73,7 +74,7 @@ router.post("/respuesta", async(req, res) => {
     });
 
     let opciones = {
-        from: `Districaribe SAS <${process.env.MAIL_USER_RESP}>`,
+        from: `Districaribe SAS <${config.MAIL_USER_RESP}>`,
         to: `
                     $ { correo }
                     `,

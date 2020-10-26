@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV === "development") {
-  require("dotenv").config();
+    require("dotenv").config();
 }
-
+const config = require('./config');
 const express = require("express");
 
 /**
@@ -17,7 +17,7 @@ const path = require('path');
 /**
  * CONFIGURACIONES
  */
-app.set("port", process.env.PORT || 3000);
+app.set("port", config.PORT_BIG_CHEF || 3000);
 
 /**
  * MIDDLEWARES
@@ -31,17 +31,17 @@ app.use(express.json());
 /**
  * ROUTES
  */
-app.use('/api',require('./routes/index'));
+app.use('/api', require('./routes/index'));
 
 
 /**
  * * CARPETA PUBLICA
  */
-app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 /**
  * ARRANCANDO EL SERVIDOR
  */
 app.listen(app.get("port"), () => {
-  console.log(`Server on port ${app.get('port')}`);
+    console.log(`Server on port ${app.get('port')}`);
 });
