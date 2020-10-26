@@ -14,7 +14,7 @@ const crearPedido = (invoice, path) => {
 
 const generateHeader = (doc) => {
     doc
-        .image("/backend/public/img/logo-districaribe-logo.png", 50, 45, { width: 150 })
+        .image("backend/public/img/logo-districaribe-logo.png", 50, 45, { width: 150 })
         .fillColor("#444444")
         // .fontSize(20)
         // .text("Big Chef", 110, 57)

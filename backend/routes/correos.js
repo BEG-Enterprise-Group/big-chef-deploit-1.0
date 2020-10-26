@@ -22,12 +22,12 @@ router.post("/contactenos", async(req, res) => {
                 <p style="font-size:16px;"><b>Mensaje:</b> ${mensaje}</p>
             `;
     let transporter = nodemailer.createTransport({
-        host: config.MAIL_HOST,
-        port: config.MAIL_PORT,
+        host: process.env.MAIL_HOST,
+        port: process.env.MAIL_PORT,
         secure: false,
         auth: {
-            user: config.MAIL_CONTACTO,
-            pass: config.MAIL_PASSWORD,
+            user: process.env.MAIL_CONTACTO,
+            pass: process.env.MAIL_PASSWORD,
         },
 
         tls: {
@@ -36,8 +36,8 @@ router.post("/contactenos", async(req, res) => {
     });
 
     let opciones = {
-        from: `${nombre} <${config.MAIL_CONTACTO}>`,
-        to: `${config.MAIL_USER_RESP},${config.MAIL_VENTAS}`,
+        from: `${nombre} <${process.env.MAIL_CONTACTO}>`,
+        to: `${process.env.MAIL_USER_RESP},${process.env.MAIL_VENTAS}`,
         subject: `Correo enviado desde formulario de contactos de districaribesas.com por ${nombre} `,
         html: contentHTML,
     };
@@ -60,12 +60,12 @@ router.post("/contactenos", async(req, res) => {
 router.post("/respuesta", async(req, res) => {
     const { nombre, correo } = req.body;
     let transporter = nodemailer.createTransport({
-        host: config.MAIL_HOST,
-        port: config.MAIL_PORT,
+        host: process.env.MAIL_HOST,
+        port: process.env.MAIL_PORT,
         secure: false,
         auth: {
-            user: config.MAIL_USER_RESP,
-            pass: config.MAIL_PASSWORD,
+            user: process.env.MAIL_USER_RESP,
+            pass: process.env.MAIL_PASSWORD,
         },
 
         tls: {
@@ -74,7 +74,7 @@ router.post("/respuesta", async(req, res) => {
     });
 
     let opciones = {
-        from: `Districaribe SAS <${config.MAIL_USER_RESP}>`,
+        from: `Districaribe SAS <${process.env.MAIL_USER_RESP}>`,
         to: `${correo}`,
         subject: `Gracias por contactarnos.....`,
         html: `<p style="font-size:16px"> Hola <b>${nombre}</b> te saluda la familia Districaribe SAS.</p>
@@ -135,12 +135,12 @@ router.post("/pedidos", async(req, res) => {
                    </ul>`;
 
     let transporter = nodemailer.createTransport({
-        host: config.MAIL_HOST,
-        port: config.MAIL_PORT,
+        host: process.env.MAIL_HOST,
+        port: process.env.MAIL_PORT,
         secure: false,
         auth: {
-            user: config.MAIL_PEDIDOS,
-            pass: config.MAIL_PASSWORD,
+            user: process.env.MAIL_PEDIDOS,
+            pass: process.env.MAIL_PASSWORD,
         },
 
         tls: {
@@ -149,8 +149,8 @@ router.post("/pedidos", async(req, res) => {
     });
 
     let opciones = {
-        from: `${empresa}<${config.MAIL_PEDIDOS}> `,
-        to: `${config.MAIL_VENTAS},${config.MAIL_PEDIDOS}`,
+        from: `${empresa}<${process.env.MAIL_PEDIDOS}> `,
+        to: `${process.env.MAIL_VENTAS},${process.env.MAIL_PEDIDOS}`,
         subject: `Correo enviado desde formulario de pedidos de districaribesas.com por la empresa <b>${empresa}</b>`,
         html: contentHTML,
         attachments: [{
@@ -173,15 +173,15 @@ router.post("/pedidos", async(req, res) => {
     });
 });
 
-router.post("/respuestaPedido", async(req, res) => {
+router.post("/respuesta-pedido", async(req, res) => {
     const { empresa, nombrePedido, correoPedido, direccionPedido, telefonoPedido, pedido, codigo } = req.body;
     let transporter = nodemailer.createTransport({
-        host: config.MAIL_HOST,
-        port: config.MAIL_PORT,
+        host: process.env.MAIL_HOST,
+        port: process.env.MAIL_PORT,
         secure: false,
         auth: {
-            user: config.MAIL_USER_RESP,
-            pass: config.MAIL_PASSWORD,
+            user: process.env.MAIL_USER_RESP,
+            pass: process.env.MAIL_PASSWORD,
         },
 
         tls: {
@@ -190,7 +190,7 @@ router.post("/respuestaPedido", async(req, res) => {
     });
 
     let opciones = {
-        from: `Districaribe SAS <${config.MAIL_USER_RESP}>`,
+        from: `Districaribe SAS <${process.env.MAIL_USER_RESP}>`,
         to: `${correoPedido}`,
         subject: `Gracias por elegir nuestros productos.....`,
         html: `<p style="font-size: 16px">Hola <b>${nombrePedido} te saluda la familia Districaribe SAS.</b></p>
@@ -200,8 +200,7 @@ router.post("/respuestaPedido", async(req, res) => {
                <p style="font-size: 16px">Gracias por elegir nuestros productos <b>BIG CHEF</b> y muchos exitos.</p>
                     `,
         attachments: [{
-            path: `
-                    backend/pdf/pedido${codigo}.pdf`
+            path: `backend/pdf/pedido${codigo}.pdf`
         }]
     };
 
@@ -214,7 +213,7 @@ router.post("/respuestaPedido", async(req, res) => {
                 res.status(200).jsonp(req.body);
                 transporter.close();
                 setTimeout(() => {
-                    const filePath = path.join(__dirname, '../', ` / pdf / pedido$ { codigo }.pdf `);
+                    const filePath = path.join(__dirname, '../', `/pdf/pedido${codigo}.pdf`);
                     console.log('File Borrado', filePath);
                     fs.unlinkSync(filePath);
                 }, 3000);

@@ -9,7 +9,7 @@ const express = require("express");
  */
 const app = express();
 const corsServer = require('cors');
-// const bodyParser = require('body-parser');
+//const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const path = require('path');
 
@@ -17,18 +17,18 @@ const path = require('path');
 /**
  * CONFIGURACIONES
  */
-app.set("port", config.PORT_BIG_CHEF || 3000);
+app.set("port", process.env.PORT || 3000);
 
 /**
  * MIDDLEWARES
  */
 app.use(morgan('dev'));
 app.use(corsServer());
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*")
-})
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+//app.use((req, res, next) => {
+//    res.header("Access-Control-Allow-Origin", "*")
+//})
 
 
 
