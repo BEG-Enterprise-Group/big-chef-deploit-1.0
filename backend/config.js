@@ -7,6 +7,6 @@ module.exports = {
     MAIL_VENTAS: process.env.MAIL_VENTAS || 'ventas@districaribesas.com',
     MAIL_CONTACTO: process.env.MAIL_CONTACTO || 'contacto@districaribesas.com',
     MAIL_PASSWORD: process.env.MAIL_PASSWORD || '5ERVER2@195f5',
-    MAIL_USER_RESP: process.env.MAIL_USER_RESP || 'atencioncliente@districaribesas.com',
+    MAIL_USER_RESP: process.env.MAIL_USER_RESP || 'atencionclientes@districaribesas.com',
     MAIL_CORREOS: process.env.MAIL_CORREOS || 'transportecorreos@districaribesas.com'
 }

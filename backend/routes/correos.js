@@ -77,9 +77,9 @@ router.post("/respuesta", async(req, res) => {
         from: `Districaribe SAS <${config.MAIL_USER_RESP}>`,
         to: `${correo}`,
         subject: `Gracias por contactarnos.....`,
-        html: `<p style="font-size:16px"> Hola <b> ${nombre} te saluda la familia Districaribe SAS. </b></p>
+        html: `<p style="font-size:16px"> Hola <b>${nombre}</b> te saluda la familia Districaribe SAS.</p>
                <br>
-               <p style="font-size:16px">Tu mensaje es muy importante para nosotros.Si necesitamos ponernos en contacto contigo lo haremos lo mas pronto posible. < /p> 
+               <p style="font-size:16px">Tu mensaje es muy importante para nosotros.Si necesitamos ponernos en contacto contigo lo haremos lo mas pronto posible.</p> 
                <br>
                <p style="font-size:16px">Gracias por elegir nuestros productos <b>BIG CHEF</b> y muchos exitos.</p>`,
     };

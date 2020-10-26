@@ -24,8 +24,12 @@ app.set("port", config.PORT_BIG_CHEF || 3000);
  */
 app.use(morgan('dev'));
 app.use(corsServer());
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
+})
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 
 
 /**
