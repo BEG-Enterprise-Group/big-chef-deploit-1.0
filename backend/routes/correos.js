@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const nodemailer = require("nodemailer");
-const config = require('../config');
 const { crearPedido } = require('../pdf/crearPedido');
 const fs = require('fs');
 const path = require('path');
